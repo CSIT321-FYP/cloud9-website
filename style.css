@@ -18,7 +18,7 @@ body {
 
 .flex-box {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .clearfix::after {
@@ -63,6 +63,76 @@ header {
     display: flex;
     justify-content: flex-end;
     width: 20%;
+}
+
+/* MASTHEAD */
+.masthead {
+    /* margin-top: 8%; */
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.masthead-content {
+    width: 40%;
+    font-size: 35px;
+}
+
+.masthead-content button {
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    background-color:  #2578fc;
+    border: none;
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+}
+
+.masthead-img {
+    height: 80%;
+}
+
+/* SOLUTIONS */
+
+.solutions {
+    height: 1000px;
+    background-color: #94bdfd;
+}
+
+.solutions-content {
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.solutions-header h1 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+    color: white;
+    padding-top: 50px;
+    margin-bottom: 0;
+}
+
+.solutions-content div {
+    margin-top: 100px;
+    height: 210px;
+    width: 450px;
+    background-color: #D6E6FE;
+    border-radius: 10px;
+}
+
+.solutions-content div h1{
+    font-size: 36px;
+    color: #2578fc;
+}
+
+.solutions-content div p {
+    width: 90%;
+}
+
+.solutions-content div{
+    padding: 0px 20px;
 }
 
 /* Login page */
@@ -120,7 +190,7 @@ header {
     margin: 5px 0;
 }
 
-button {
+.button button{
     border-radius: 20px;
     background-color: #2578fc;
     color: white;
@@ -129,6 +199,7 @@ button {
     margin-top: 30px;
     width: 135px;
     height: 40px;
+    border: none;
 }
 
 .passage p {
@@ -173,28 +244,3 @@ button {
     height: 500px;
 }
 
-/* MASTHEAD */
-.masthead {
-    margin-top: 8%;
-    justify-content: space-around;
-}
-
-.masthead-content {
-    width: 40%;
-    font-size: 35px;
-}
-
-.masthead-content button {
-    padding: 15px;
-    border-radius: 10px;
-    color: white;
-    background-color:  #2578fc;
-    border: none;
-    width: 200px;
-    height: 60px;
-    font-size: 20px;
-}
-
-.masthead-img {
-    height: 80%;
-}
