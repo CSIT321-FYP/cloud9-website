@@ -62,3 +62,20 @@ header {
     justify-content: flex-end;
     width: 20%;
 }
+
+/* Login page */
+.login-container .left {
+    display: block;
+    margin-top: 150px;
+    margin-left: 100px;
+}
+
+.left h3 {
+    color: #2578fc;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.left p {
+    margin: 5px 0;
+}
