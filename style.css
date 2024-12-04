@@ -1,0 +1,66 @@
+html {
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* reusable classes */
+.row {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    /* justify-content: center; */
+}
+
+.flex-box {
+    display: flex;
+    align-items: center;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+/* landing page */
+
+header {
+    background-color: #2578fc;
+    color: white;
+    height: 90px;
+}
+
+.links {
+    margin-top: 6px;
+    align-items: center;
+    width: 80%;
+}
+
+.links ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin-left: 100px;
+}
+
+.links li {
+    display: inline-block;
+}
+
+.links h1 {
+    display: inline-block;
+}
+
+.login {
+    margin-top: 6px;
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
+    /* display: fle; */
+    /* justify-content: flex-end; */
+}
