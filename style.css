@@ -63,14 +63,18 @@ header {
     display: flex;
     justify-content: flex-end;
     width: 20%;
-<<<<<<< HEAD
 }
 
 /* Login page */
-.login-container .left {
-    display: block;
+.login-container {
+    display: flex;
+    justify-content: space-between;
     margin-top: 150px;
-    margin-left: 100px;
+}
+
+.left {
+    display: block;
+    margin-left: 150px;
 }
 
 .left h3 {
@@ -81,8 +85,92 @@ header {
 
 .left p {
     margin: 5px 0;
-=======
     /* font-weight: bold; */
+}
+
+.textbox {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    width: 580px;
+    margin-bottom: 10px;
+}
+
+.textbox:first-of-type {
+    margin-top: 50px; 
+}
+
+.textbox i {
+    margin-left: 10px;
+    color: #000000;
+    font-size: 18px;
+    width: 20px;
+    height: auto;
+}
+
+.textbox input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+button {
+    border-radius: 20px;
+    background-color: #2578fc;
+    color: white;
+    font-size: 16px;
+    margin-left: 230px;
+    margin-top: 30px;
+    width: 135px;
+    height: 40px;
+}
+
+.passage p {
+    margin-left: 250px;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.icons {
+    display: flex;
+    margin-left: 215px;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.icons i {
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+}
+
+.icons i:hover {
+    background-color: #2578fc; 
+}
+
+.right {
+    flex-shrink: 0;
+    margin-right: 200px;
+}
+
+.right img {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
 }
 
 /* MASTHEAD */
@@ -98,5 +186,4 @@ header {
 
 .masthead-img {
     height: 80%;
->>>>>>> ab730256b423896f71bb2006f52c46cbf6e8ccfb
 }
