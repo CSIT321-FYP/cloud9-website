@@ -184,6 +184,17 @@ button {
     font-size: 35px;
 }
 
+.masthead-content button {
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    background-color:  #2578fc;
+    border: none;
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+}
+
 .masthead-img {
     height: 80%;
 }
