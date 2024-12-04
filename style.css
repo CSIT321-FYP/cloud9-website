@@ -6,13 +6,14 @@ body {
     
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat';
 }
 
 /* reusable classes */
 .row {
     width: 90%;
     margin: 0 auto;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .flex-box {
@@ -26,8 +27,8 @@ body {
     display: table;
   }
 
-/* landing page */
-
+/**************************** LANDING PAGE ****************************/
+/* HEADER */
 header {
     background-color: #2578fc;
     color: white;
@@ -50,6 +51,7 @@ header {
 
 .links li {
     display: inline-block;
+    /* font-weight: 100; */
 }
 
 .links h1 {
@@ -61,6 +63,7 @@ header {
     display: flex;
     justify-content: flex-end;
     width: 20%;
+<<<<<<< HEAD
 }
 
 /* Login page */
@@ -78,4 +81,22 @@ header {
 
 .left p {
     margin: 5px 0;
+=======
+    /* font-weight: bold; */
+}
+
+/* MASTHEAD */
+.masthead {
+    margin-top: 8%;
+    justify-content: space-around;
+}
+
+.masthead-content {
+    width: 40%;
+    font-size: 35px;
+}
+
+.masthead-img {
+    height: 80%;
+>>>>>>> ab730256b423896f71bb2006f52c46cbf6e8ccfb
 }
