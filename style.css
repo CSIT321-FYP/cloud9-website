@@ -63,7 +63,6 @@ header {
     display: flex;
     justify-content: flex-end;
     width: 20%;
-<<<<<<< HEAD
 }
 
 /* Login page */
@@ -81,7 +80,6 @@ header {
 
 .left p {
     margin: 5px 0;
-=======
     /* font-weight: bold; */
 }
 
@@ -109,5 +107,4 @@ header {
 
 .masthead-img {
     height: 80%;
->>>>>>> ab730256b423896f71bb2006f52c46cbf6e8ccfb
 }
