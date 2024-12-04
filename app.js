@@ -1,15 +1,13 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const routerMiddleware = require('./middleware/routerMiddleware')
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Route to render an HTML page
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Hello World', message: 'Welcome to Cloud 9' });
-});
+app.use('/', routerMiddleware)
 
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
