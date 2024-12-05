@@ -62,6 +62,11 @@ header {
     margin-top: 6px;
 }
 
+.login a {
+    color: white;
+    text-decoration: none;
+}
+
 /* MASTHEAD */
 .masthead {
     /* margin-top: 8%; */
