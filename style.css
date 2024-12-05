@@ -62,7 +62,7 @@ header {
     margin-top: 6px;
 }
 
-.login a {
+header a {
     color: white;
     text-decoration: none;
 }
