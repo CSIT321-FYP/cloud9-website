@@ -44,14 +44,14 @@ header {
 .links ul {
     list-style-type: none;
     display: flex;
-    justify-content: space-between;
-    width: 40%;
     margin-left: 100px;
+    gap: 110px;
 }
 
 .links li {
     display: inline-block;
-    /* font-weight: 100; */
+    font-weight: 600;
+    font-size: 24px;
 }
 
 .links h1 {
@@ -60,9 +60,6 @@ header {
 
 .login {
     margin-top: 6px;
-    display: flex;
-    justify-content: flex-end;
-    width: 20%;
 }
 
 /* MASTHEAD */
@@ -221,11 +218,85 @@ header {
     border: 3px solid #fff;
 }
 
-/* Login page */
+/* REVIEWS */
+
+.reviews {
+    height: 500px;
+}
+
+.user-info img {
+    float: left;
+}
+
+.user-info h3, .user-info p{
+    margin: 3px 13px;
+    float: left;
+    width: 60%;
+    color: white;
+}
+
+.reviews-content {
+    background-color: #94bdfd;
+    flex-direction: column;
+    width: 455px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.review-info {
+    margin-top: 10px;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.review-info p{
+    padding: 0px 15px;
+    font-size: 17px;
+    height: auto;
+}
+
+/* FAQ */
+.faq {
+    height: 1000px;
+    background-color: #94bdfd;
+}
+
+.faq-header {
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    padding-top: 1px;
+}
+
+.faq-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.faq-content div{
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    width: 660px;
+    border-radius: 10px ;
+}
+
+.faq-content h3 {
+    width: 100%;
+}
+
+.faq-content img {
+    cursor: pointer;
+}
+
+/**************************** LOGIN PAGE ****************************/
 .login-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 .left {
@@ -330,7 +401,7 @@ header {
     height: 500px;
 }
 
-/* Sign up page */
+/**************************** SIGN UP PAGE ****************************/
 .createAcc {
     display: block;
     margin-top: 100px;
