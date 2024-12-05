@@ -497,3 +497,74 @@ header a {
 .signup-icons i:hover {
     background-color: #2578fc; 
 }
+
+/* Select payment */
+.username {
+    margin-left: auto; 
+    margin-right: 26px; 
+    font-size: 20px;  
+    font-weight: bold; 
+}
+
+.back-button {
+    margin-top: 20px;
+}
+
+.back-button i {
+    font-size: 30px;
+    color: #000000;
+}
+
+.payment {
+    justify-content: center;
+    gap: 20px;
+    /* margin-top: 50px; */
+    flex-wrap: wrap;
+}
+
+.payment-info {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 200px;
+    height: 330px;
+    padding: 20px 0;
+    border-radius: 10px;
+    text-align: center; 
+    border: 1px solid #000000;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    margin-top: 50px;
+}
+
+.payment-info:hover {
+    border: 3px solid #2578fc;
+}
+
+.payment-info h2 {
+    font-size: 16px;
+}
+
+.payment-info img {
+    width: 50px;
+    height: auto;
+}
+
+.payment-info .tick-text {
+    align-items: center;
+    margin-top: 3px; 
+}
+
+.payment-info .tick-text i {
+    color: #32c866; 
+    font-size: 20px; 
+    margin-left: 20px;
+}
+
+.payment-info .tick-text p {
+    font-size: 16px;
+    margin-top: 10px; 
+    margin-left: 20px;
+    width: 150px;
+    text-align: left;
+}
