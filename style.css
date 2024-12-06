@@ -657,7 +657,12 @@ header a {
     color: #A9A9A9;
 }
 
+.terms p {
+    margin: 5px 0;
+}
+
 .checkbox-group {
+    margin-top: 20px;
     align-items: center;
     margin-bottom: 20px;
 }
