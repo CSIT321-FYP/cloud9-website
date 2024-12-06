@@ -120,9 +120,9 @@
     </section>
     <!-- REVIEWS -->
     <section class="reviews">
-        <div class="row flex-box" style="justify-content: space-around;">
-            <div class="reviews-content flex-box">
+        <div class="row flex-box" id="reviews-container" style="justify-content: space-around;">
             <!-- number of boxes depends on the number of ratings from the db -->
+            <!-- <div class="reviews-content flex-box">
                 <div class="user-info">
                     <img src="img/sample-profile.png">
                     <h3 id="name">Alice</h3>
@@ -134,7 +134,6 @@
                 </div>
             </div>
             <div class="reviews-content flex-box">
-                <!-- number of boxes depends on the number of ratings from the db -->
                     <div class="user-info">
                         <img src="img/sample-profile.png">
                         <h3 id="name">Bob</h3>
@@ -146,7 +145,6 @@
                     </div>
             </div>
             <div class="reviews-content flex-box">
-                <!-- number of boxes depends on the number of ratings from the db -->
                     <div class="user-info">
                         <img src="img/sample-profile.png">
                         <h3 id="name">Carol</h3>
@@ -157,7 +155,7 @@
                         <p>Highly recommend for all to use</p> 
                     </div>
             </div>
-        </div>
+        </div> -->
     </section>
     <section class="faq">
         <div class="row">
@@ -197,4 +195,71 @@
         </div>
     </section>
 </body>
+ <!-- JAVASCRIPT -->
+<script>
+    // sameple array returned from db
+    const sampleJSON = [
+        {name: "Alice", imgSrc:"img/sample-profile.png", username: "@Aliceusername", rating: "5", review: "Very good app! Best in the market"},
+        {name: "Bob", imgSrc:"img/sample-profile.png", username: "@Bobusername", rating: "5", review: "Did not regret subscribing to the premium version, must try for all!"},
+        {name: "Carol", imgSrc:"img/sample-profile.png", username: "@Carolusername", rating: "5", review: "Highly recommend for all to use"}
+    ];
+
+    const reviewContainer = document.getElementById("reviews-container");
+
+    for (let i=0; i < sampleJSON.length; i++){
+        // create user-info div
+        const userInfoDiv = document.createElement("div");
+        userInfoDiv.className = "user-info";
+
+        // create profile picture element
+        const profilePic = document.createElement("img");
+        profilePic.src = sampleJSON[i].imgSrc;
+
+        // create name element
+        const name = document.createElement("h3");
+        name.textContent = sampleJSON[i].name;
+
+        // create username element
+        const username = document.createElement("p");
+        username.textContent = sampleJSON[i].username;
+
+        // create stars element
+        const stars = document.createElement("img");
+        stars.src = "img/stars.png";
+        stars.style.marginTop = "5px";
+
+        // append information to user-info div
+        userInfoDiv.append(profilePic);
+        userInfoDiv.append(name);
+        userInfoDiv.append(username);
+        userInfoDiv.append(stars);
+
+        // create review-info div
+        const reviewInfoDiv = document.createElement("div");
+        reviewInfoDiv.className =  "review-info";
+        
+        // create p element
+        const p = document.createElement("p");
+        p.textContent = sampleJSON[i].review;
+
+        // append information to reivew-info div
+        reviewInfoDiv.append(p);
+
+        // create reviews-content div
+        const reviewsContentDiv = document.createElement("div");
+        reviewsContentDiv.classList.add("reviews-content", "flex-box");
+
+        // append information to reviews-content div
+        reviewsContentDiv.append(userInfoDiv);
+        reviewsContentDiv.append(reviewInfoDiv);
+
+        // append divs to main container
+        reviewContainer.append(reviewsContentDiv);
+
+
+
+        // reviewContainer.append(reviewsContentDiv)
+
+    }
+</script>
 </html>
