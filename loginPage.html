@@ -37,19 +37,21 @@
             <p>To stay connected with us, please</p>
             <p>login with your personal details</p>
 
-            <div class="textbox">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Username" required>
-            </div>
+            <form method="POST">
+                <div class="textbox">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
 
-            <div class="textbox">
-                <i class="fas fa-lock"></i>
-                <input type="text" placeholder="Password" required>
-            </div>
+                <div class="textbox">
+                    <i class="fas fa-lock"></i>
+                    <input type="text" id="password" placeholder="Password" required>
+                </div>
 
-            <div class="button">
-                <button type="button">LOG IN</button>
-            </div>
+                <div class="button">
+                    <button type="button" onclick="submitForm()">LOG IN</button>
+                </div>
+            </form>
 
             <div class="passage">
                 <p>Or log in with</p>
@@ -67,4 +69,13 @@
         </div>
     </div>
 </body>
+<script>
+    function submitForm(){
+        username = document.getElementById("username").value;
+        password = document.getElementById("password").value;
+        console.log(username);
+        console.log(password)
+    }
+
+</script>
 </html>
