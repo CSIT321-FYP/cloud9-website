@@ -4,8 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make Payment</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <div class="row flex-box" style="align-items: center;">
+            <div class="links flex-box">
+                <h1>Payment</h1>
+            </div>
+            <div class="username">
+                <p>John_doe</p>
+            </div>
+        </div>  
+    </header>
+
+    <!-- <div class="payment-form">
+        <h2>Payment details</h2>
+        <div class="card-icons">
+            <img src="img/mastercard.png" alt="Mastercard">
+            <img src="img/visa.webp" alt="Visa">
+        </div>
+        <form>
+            <div class="input-group">
+                <input type="text" placeholder="Card Number">
+            </div>
+            <div class="input-row">
+                <input type="text" placeholder="Expiry Date">
+                <input type="text" placeholder="CVV">
+                <span class="info-icon" title="Enter the 3-digit code at the back of your card">?</span>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Name on card">
+            </div>
+        </form>
+    </div> -->
+
+    <div class="row">
+        <div class="back-button">
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+
+        <div class="payment-details">
+            <h2>Payment details</h2>
+            <div class="flex-box payment-type">
+                <img src="img/mastercard.png" alt="Mastercard">
+                <img src="img/visa.webp" alt="Visa">
+            </div>
+            <form>
+                <div class="text-box">
+                    <input type="text" placeholder="Card Number" required>
+                </div>
+                <div class="flex-box twobox">
+                    <div class="flex-box input-box">
+                        <input type="text" placeholder="Expiry Date" required>
+                    </div>
+                    <div class="flex-box input-box">
+                        <input type="text" placeholder="CVV" required>
+                        <span class="info-icon" title="Enter the 3-digit code at the back of your card">?</span>
+                    </div>
+                </div>
+                <div class="text-box">
+                    <input type="text" placeholder="Name on card" required>
+                </div>
+                <div class="paragraph">
+                    <p>Additional bank fees may apply.</p>
+                </div>
+                <p class="terms">
+                    By ticking the tickbox below, you agree to our Terms of Use, Privacy Statement, and that you are over 18. 
+                    Cl9ud will automatically continue your membership and charge the membership fee (currently $4.90/month) 
+                    to your payment method until you cancel. You may cancel at any time to avoid future charges.
+                </p>
+                <div class="flex-box checkbox-group">
+                    <input type="checkbox" id="agree">
+                    <label for="agree">I agree.</label>
+                </div>
+                <button class="button-member" type="submit">Start membership</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

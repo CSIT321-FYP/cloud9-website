@@ -498,7 +498,7 @@ header a {
     background-color: #2578fc; 
 }
 
-/* Select payment */
+/* Cloud Storage */
 .username {
     margin-left: auto; 
     margin-right: 26px; 
@@ -567,4 +567,114 @@ header a {
     margin-left: 20px;
     width: 150px;
     text-align: left;
+}
+
+/* Payment details */
+.payment-details {
+    display: block;
+    margin-top: 50px;
+    margin-left: 250px;
+}
+
+.payment-type img{
+    margin-right: 13px;
+    width: 60px;
+    height: 50px;
+    margin-bottom: 14px;
+}
+
+.payment-type img:hover {
+    transform: scale(1.1);
+}
+
+.text-box {
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    width: 700px;
+    margin-top: 11px;
+}
+
+.text-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.twobox {
+    gap: 15px; 
+    align-items: center; 
+    margin-top: 10px;
+}
+
+.input-box {
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    width: 336px;
+    /* flex: 1;  */
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.info-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin-left: 5px;
+    cursor: pointer;
+    color: white;
+    width: 20px;
+    height: 20px;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+.paragraph p{
+    margin-top: 20px;
+    font-size: 16px;
+    color: #A9A9A9;
+}
+    
+.terms {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #A9A9A9;
+}
+
+.checkbox-group {
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+    transform: scale(1.5);
+}
+
+.button-member {
+    margin-left: 70px;
+    margin-top: 5px;
+    border-radius: 20px;
+    background-color: #2578fc;
+    color: white;
+    font-size: 30px;
+    width: 600px;
+    height: 50px;
+    border: none;
 }
