@@ -701,3 +701,177 @@ header a {
     height: 50px;
     border: none;
 }
+
+/* Edit Account */
+.content {
+    margin-left: 40px;
+    max-width: 90%;
+}
+
+.profile img {
+    width: 90px;
+    height: auto;
+}
+
+.profile h2 {
+    margin-left: 30px;
+}
+
+.edit-icon {
+    transform: scaleX(-1); 
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.details {
+    margin-top: 20px;
+}
+
+.flex-box.input-row {
+    justify-content: space-between; 
+    gap: 10px; 
+    margin-bottom: 10px;
+}
+
+.input-group {
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #000000;
+}
+
+.input-group label {
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; 
+    color: #000000;
+    font-size: 18px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 0; 
+    color: #000000;
+}
+
+.payment-methods h2,
+.cloud-storage h2 {
+    margin-bottom: 10px;
+}
+
+.card-container {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    margin-bottom: 10px;
+}
+
+.card-box {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-right: 15px; 
+    width: 680px;
+    height: 40px;
+}
+
+.card-box img {
+    width: 40px;
+    height: auto;
+    margin-right: 20px; 
+}
+
+.default-badge {
+    background-color: #8dc65c;
+    color: #386641;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: auto; 
+    border: 1px solid #386641
+}
+
+.remove-btn {
+    background-color: transparent;
+    color: red;
+    border: 1px solid red;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.cloud-storage h2 {
+    margin-bottom: 10px;
+}
+
+.row-container {
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 10px; 
+}
+
+.storage {
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-right: 15px; 
+    width: 500px;
+    height: 40px;
+}
+
+.storage img {
+    width: 40px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.storage span {
+    font-weight: bold;
+}
+
+.change-btn {
+    background-color: transparent;
+    color: #2578fc;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    border: 1px solid #2578fc;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.back-btn {
+    background-color: white;
+    color: #2578fc;
+    border: 1px solid #2578fc;
+    border-radius: 5px;
+    padding: 15px 40px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save-btn {
+    background-color: #2578fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 40px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+}

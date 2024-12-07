@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Account</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="row flex-box" style="align-items: center;">
+            <div class="links flex-box">
+                <h1>Account Settings</h1>
+            </div>
+            <div class="username flex-box" id="usernameContainer">
+                <!-- <p>John_doe</p> -->
+                <!-- <img src="img/user-profile.png"> -->
+            </div>
+        </div>  
+    </header>
+
+    <div class="row">
+        <div class="back-button">
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+
+        <div class="content">
+            <div class="flex-box profile">
+                <div class="avatar">
+                    <img src="img/user-profile.png" alt="Avatar">
+                </div>
+                <h2>John_doe <span class="edit-icon">&#9998;</span></h2>
+            </div>
+
+            <div class="details">
+                <div class="flex-box input-row">
+                    <div class="input-group">
+                        <label><i class="fas fa-id-card"></i></label>
+                        <input type="text" placeholder="John">
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-id-card"></i></label>
+                        <input type="text" placeholder="Doe">
+                    </div>
+                </div>
+                <div class="flex-box input-row">
+                    <div class="input-group">
+                        <label><i class="fa-regular fa-envelope"></i></label>
+                        <input type="email" placeholder="john_doe@example.com">
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-lock"></i></label>
+                        <input type="password" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-methods">
+                <h2>Payment Methods</h2>
+                <div class="card-container">
+                    <div class="card-box">
+                        <img src="img/mastercard.png" alt="MasterCard">
+                        <span>**** **** **** 1234</span>
+                        <span class="default-badge">Default</span>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+                <div class="card-container">
+                    <div class="card-box">
+                        <img src="img/visa.webp" alt="Visa">
+                        <span>**** **** **** 5678</span>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+            <div class="cloud-storage">
+                <h2>Cloud Storage</h2>
+                <div class="flex-box row-container">
+                    <div class="flex-box storage">
+                        <img src="img/dropbox.png" alt="Dropbox">
+                        <span>DropBox</span>
+                    </div>
+                    <button class="change-btn">Change</button>
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <button class="back-btn">Back</button>
+                <button class="save-btn">Save</button>
+            </div>
+    </div>
+</body>
+</html>
