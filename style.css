@@ -572,8 +572,8 @@ header a {
 /* Payment details */
 .payment-details {
     display: block;
-    margin-top: 50px;
-    margin-left: 250px;
+    margin-top: 40px;
+    margin-left: 300px;
 }
 
 .payment-type img{
