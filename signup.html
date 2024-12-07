@@ -40,33 +40,32 @@
             <div class="flex-box particulars">
                 <div class="input-group">
                     <i class="fas fa-id-card"></i>
-                    <input type="text" placeholder="First Name" required>
+                    <input type="text" id="fname" placeholder="First Name" required>
                 </div>
                 <div class="input-group">
                     <i class="fas fa-id-card"></i>
-                    <input type="text" placeholder="Last Name" required>
+                    <input type="text" id="lname" placeholder="Last Name" required>
                 </div>
                 <div class="input-group">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" id="username" placeholder="Username" required>
                 </div>
                 <div class="input-group">
                     <i class="fa-regular fa-envelope"></i>
-                    <input type="text" placeholder="Email" required>
+                    <input type="text" id="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
-                    <input type="text" placeholder="Password" required>
+                    <input type="text" id="password" placeholder="Password" required>
                 </div>
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
-                    <input type="text" placeholder="Confirm Password" required>
+                    <input type="text" id="cpassword" placeholder="Confirm Password" required>
+                </div>
+                <div class="signup-button">
+                    <button type="button" onclick="submitForm()">SIGN UP</button>
                 </div>
             </div>
-        </div>
-
-        <div class="signup-button">
-            <button type="button">SIGN UP</button>
         </div>
 
         <div class="signup-passage">
@@ -80,4 +79,20 @@
         </div>
     </div>
 </body>
+<script>
+    function submitForm(){
+        const fname = document.getElementById("fname").value;
+        const lname = document.getElementById("lname").value;
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const cpassword = document.getElementById("cpassword").value;
+        console.log(fname);
+        console.log(lname);
+        console.log(username);
+        console.log(email);
+        console.log(password);
+        console.log(cpassword);
+    }
+</script>
 </html>

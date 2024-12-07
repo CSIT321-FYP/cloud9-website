@@ -427,7 +427,7 @@ header a {
     display: flex;
     flex-wrap: wrap; 
     gap: 20px;
-    justify-content: space-between; 
+    justify-content: center; 
     margin-top: 40px;
 }
 
@@ -460,7 +460,6 @@ header a {
     background-color: #2578fc;
     color: white;
     font-size: 16px;
-    margin-left: 820px;
     margin-top: 40px;
     width: 135px;
     height: 40px;
