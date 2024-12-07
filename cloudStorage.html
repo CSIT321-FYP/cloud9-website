@@ -14,8 +14,9 @@
             <div class="links flex-box">
                 <h1>Connect to cloud storage</h1>
             </div>
-            <div class="username">
-                <p>John_doe</p>
+            <div class="username flex-box" id="usernameContainer">
+                <!-- <p>John_doe</p> -->
+                <!-- <img src="img/user-profile.png"> -->
             </div>
         </div>  
     </header>
@@ -109,4 +110,22 @@
         </div>
     </div>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        // sample JSON returned from db
+        sampleJSON = {
+            username: "John_doe",
+            profilepic: "img/user-profile.png" // replace with image path from db
+        }
+
+        usernameContainer = document.getElementById("usernameContainer");
+        const p = document.createElement("p");
+        p.textContent = sampleJSON.username;
+        const img = document.createElement("img");
+        img.src = sampleJSON.profilepic;
+
+        usernameContainer.append(p);
+        usernameContainer.append(img);
+    })
+</script>
 </html>
