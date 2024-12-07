@@ -14,8 +14,9 @@
             <div class="links flex-box">
                 <h1>Payment</h1>
             </div>
-            <div class="username">
-                <p>John_doe</p>
+            <div class="username flex-box" id="usernameContainer">
+                <!-- <p>John_doe</p> -->
+                <!-- <img src="img/user-profile.png"> -->
             </div>
         </div>  
     </header>
@@ -24,45 +25,78 @@
         <div class="back-button">
             <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
         </div>
-
-        <div class="payment-details">
-            <h2>Payment details</h2>
-            <div class="flex-box payment-type">
-                <img src="img/mastercard.png" alt="Mastercard">
-                <img src="img/visa.webp" alt="Visa">
+        <div class="flex-box payment-container">
+            <div class="payment-details flex-box">
+                <h2>Payment details</h2>
+                <div class="payment-type">
+                    <img src="img/mastercard.png" alt="Mastercard">
+                    <img src="img/visa.webp" alt="Visa">
+                </div>
+                <form>
+                    <div class="flex-box text-box">
+                        <input type="text" id="card-number" placeholder="Card Number" required>
+                    </div>
+                    <div class="flex-box twobox">
+                        <div class="input-box">
+                            <input type="text" id="expiry-date" placeholder="Expiry Date" required>
+                        </div>
+                        <div class="flex-box input-box">
+                            <input type="text" id="cvv" placeholder="CVV" required>
+                            <span class="info-icon" title="Enter the 3-digit code at the back of your card">?</span>
+                        </div>
+                    </div>
+                    <div class="text-box">
+                        <input type="text" id="name" placeholder="Name on card" required>
+                    </div>
+                    <div class="paragraph">
+                        <p>Additional bank fees may apply.</p>
+                    </div>
+                    <div class="terms">
+                        <p>By ticking the tickbox below, you agree to our Terms of Use, Privacy Statement, and that you are
+                        over 18. Cl9ud will automatically continue your membership and charge the membership fee
+                        (currently $4.90/month) to your payment method until you cancel. You may cancel at any time
+                        to avoid future charges.</p>
+                    </div>
+                    <div class="flex-box checkbox-group">
+                        <input type="checkbox" id="agree">
+                        <label id="agree" for="agree">I agree.</label>
+                    </div>
+                    <button class="button-member" type="button" onclick="submitForm()">Start membership</button>
+                </form>
             </div>
-            <form>
-                <div class="text-box">
-                    <input type="text" placeholder="Card Number" required>
-                </div>
-                <div class="flex-box twobox">
-                    <div class="flex-box input-box">
-                        <input type="text" placeholder="Expiry Date" required>
-                    </div>
-                    <div class="flex-box input-box">
-                        <input type="text" placeholder="CVV" required>
-                        <span class="info-icon" title="Enter the 3-digit code at the back of your card">?</span>
-                    </div>
-                </div>
-                <div class="text-box">
-                    <input type="text" placeholder="Name on card" required>
-                </div>
-                <div class="paragraph">
-                    <p>Additional bank fees may apply.</p>
-                </div>
-                <div class="terms">
-                    <p>By ticking the tickbox below, you agree to our Terms of Use, Privacy Statement, and that you are</p>
-                    <p>over 18. Cl9ud will automatically continue your membership and charge the membership fee</p> 
-                    <p>(currently $4.90/month) to your payment method until you cancel. You may cancel at any time</p>
-                    <p>to avoid future charges.</p>
-                </div>
-                <div class="flex-box checkbox-group">
-                    <input type="checkbox" id="agree">
-                    <label for="agree">I agree.</label>
-                </div>
-                <button class="button-member" type="submit">Start membership</button>
-            </form>
         </div>
     </div>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        // sample JSON returned from db
+        sampleJSON = {
+            username: "John_doe",
+            profilepic: "img/user-profile.png" // replace with image path from db
+        }
+
+        usernameContainer = document.getElementById("usernameContainer");
+        const p = document.createElement("p");
+        p.textContent = sampleJSON.username;
+        const img = document.createElement("img");
+        img.src = sampleJSON.profilepic;
+
+        usernameContainer.append(p);
+        usernameContainer.append(img);
+    })
+
+
+    function submitForm(){
+        const cardNumber = document.getElementById("card-number").value;
+        const expiryDate = document.getElementById("expiry-date").value;
+        const cvv = document.getElementById("cvv").value;
+        const name = document.getElementById("name").value;
+        const agree = document.getElementById("agree").value;
+        console.log(cardNumber);
+        console.log(expiryDate);
+        console.log(cvv);
+        console.log(name);
+        console.log(agree);
+    }
+</script>
 </html>
