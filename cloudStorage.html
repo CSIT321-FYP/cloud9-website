@@ -22,8 +22,8 @@
     </header>
 
     <div class="row">
-        <div class="back-button">
-            <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="back-button" id="back-button" onclick="redirect()">
+            <i class="fa-solid fa-arrow-left"></i>
         </div>
 
         <div class="flex-box payment">
@@ -127,5 +127,18 @@
         usernameContainer.append(p);
         usernameContainer.append(img);
     })
+
+    function redirect(){
+        const params = new URLSearchParams(window.location.search);
+
+        const from = params.get("edit");
+
+        if (from == 1) {
+            window.location.href = "editAccount.html";
+        } else {
+            window.location.href = "index.html";
+        }
+    }
+    
 </script>
 </html>

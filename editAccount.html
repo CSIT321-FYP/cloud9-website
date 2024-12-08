@@ -26,40 +26,42 @@
             <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
-        <div class="content">
+        <form class="content">
             <div class="flex-box profile">
                 <div class="avatar">
                     <img src="img/user-profile.png" alt="Avatar">
                 </div>
-                <h2>John_doe <span class="edit-icon">&#9998;</span></h2>
+                <h2 id="username">123<span class="edit-icon" id="edit-username" onclick="editUsername()"><img src="img/pencil.png"></span></h2>
+                <input type="text" id="editInput" style="display:none;">
+                <button id="saveButton" style="display:none;">Save</button>
             </div>
 
             <div class="details">
                 <div class="flex-box input-row">
                     <div class="input-group">
                         <label><i class="fas fa-id-card"></i></label>
-                        <input type="text" placeholder="John">
+                        <input type="text" id="fname">
                     </div>
                     <div class="input-group">
                         <label><i class="fas fa-id-card"></i></label>
-                        <input type="text" placeholder="Doe">
+                        <input type="text" id="lname">
                     </div>
                 </div>
                 <div class="flex-box input-row">
                     <div class="input-group">
                         <label><i class="fa-regular fa-envelope"></i></label>
-                        <input type="email" placeholder="john_doe@example.com">
+                        <input type="email" id="email">
                     </div>
                     <div class="input-group">
                         <label><i class="fas fa-lock"></i></label>
-                        <input type="password" placeholder="Password">
+                        <input type="password" id="password">
                     </div>
                 </div>
             </div>
 
-            <div class="payment-methods">
+            <div class="payment-methods" id="payment-methods-container">
                 <h2>Payment Methods</h2>
-                <div class="card-container">
+                <!-- <div class="card-container">
                     <div class="card-box">
                         <img src="img/mastercard.png" alt="MasterCard">
                         <span>**** **** **** 1234</span>
@@ -73,24 +75,251 @@
                         <span>**** **** **** 5678</span>
                     </div>
                     <button class="remove-btn">Remove</button>
-                </div>
+                </div> -->
             </div>
 
-            <div class="cloud-storage">
+            <div class="cloud-storage" id="cloud-storage-container">
                 <h2>Cloud Storage</h2>
-                <div class="flex-box row-container">
+                <!-- <div class="flex-box row-container">
                     <div class="flex-box storage">
                         <img src="img/dropbox.png" alt="Dropbox">
                         <span>DropBox</span>
                     </div>
                     <button class="change-btn">Change</button>
-                </div>
+                </div> -->
             </div>
-            
+                        
             <div class="buttons">
-                <button class="back-btn">Back</button>
-                <button class="save-btn">Save</button>
+                <button class="back-btn" type="button">Back</button>
+                <button class="save-btn" type="button" onclick="submitForm()">Save</button>
             </div>
-    </div>
+        </form>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        // sample JSON returned from db
+        sampleJSON = {
+            username: "John_doe",
+            profilepic: "img/user-profile.png" // replace with image path from db
+        }
+
+        // input information into header 
+        usernameContainer = document.getElementById("usernameContainer");
+        const p = document.createElement("p");
+        p.textContent = sampleJSON.username;
+        const img = document.createElement("img");
+        img.src = sampleJSON.profilepic;
+
+        usernameContainer.append(p);
+        usernameContainer.append(img);
+
+        // input information into edit account
+        accountInformationJSON = {
+            username: "John_doe",
+            fname: "John",
+            lname: "Doe",
+            email: "john_doe@example.com",
+            password: "password",
+            paymentMethods: [
+                {
+                    type: "MasterCard",
+                    cardNumber: "1234123412341234",
+                    expiryDate: "01/01",
+                    cardHolder: "John Doe",
+                    default: "1"
+                },
+                {
+                    type: "VisaCard",
+                    cardNumber: "5678567856785678",
+                    expiryDate: "01/01",
+                    cardHolder: "John Doe",
+                    default: "0"
+                }
+            ],
+            cloudStorage: [
+                {
+                    cloudStorage: "DropBox"
+                }
+            ]
+        }
+
+        const username = document.getElementById("username")
+        const fname = document.getElementById("fname");
+        const lname = document.getElementById("lname");
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+
+
+        // uses localStorage to set information OR use information from JSON if localStorage empty
+        // use in the event of selecting cloud storage, when the user comes back the information on the form will remain
+        username.firstChild.textContent = localStorage.getItem('username') || accountInformationJSON.username;
+        fname.value = localStorage.getItem('fname') || accountInformationJSON.fname;
+        lname.value = localStorage.getItem('lname') || accountInformationJSON.lname;
+        email.value = localStorage.getItem('email') ||accountInformationJSON.email;
+        password.value = localStorage.getItem('password') ||accountInformationJSON.password;
+
+        const paymentMethodsContainer = document.getElementById("payment-methods-container");
+
+        // iterate through each payment methods
+        for (let i = 0; i < accountInformationJSON.paymentMethods.length; i++){
+            const cardContainer = document.createElement("div");
+            cardContainer.className = "card-container";
+            const cardBox = document.createElement("div");
+            cardBox.className = "card-box";
+
+            // creating and appending card image 
+            const cardImg = document.createElement("img");
+            if (accountInformationJSON.paymentMethods[i].type == "MasterCard") {
+                cardImg.src = "img/mastercard.png";
+                cardBox.append(cardImg);
+            }
+
+            if (accountInformationJSON.paymentMethods[i].type == "VisaCard") {
+                cardImg.src = "img/visa.webp";
+                cardBox.append(cardImg);
+            }
+
+            // creating and apppending card number
+            const cardNumber = document.createElement("span");
+            const starString = "**** **** **** "
+            const lastFourDigits = accountInformationJSON.paymentMethods[i].cardNumber.slice(-4);
+            cardNumber.textContent = starString + lastFourDigits;
+            cardBox.append(cardNumber);
+
+            // creating and appending default tag
+            if (accountInformationJSON.paymentMethods[i].default == 1) {
+                const defaultBadge = document.createElement("span");
+                defaultBadge.className = "default-badge";
+                defaultBadge.textContent = "Default";
+                cardBox.append(defaultBadge);
+            }
+
+            cardContainer.append(cardBox);
+
+            // creating and appending remove button
+            const removeBtn = document.createElement("button");
+            removeBtn.className = "remove-btn";
+            removeBtn.textContent = "Remove";
+
+            // remove container if button is clicked
+            removeBtn.addEventListener("click", function () {
+                cardContainer.remove();
+            });
+
+            cardContainer.append(removeBtn);
+
+            paymentMethodsContainer.append(cardContainer);
+        }
+
+        // cloud storages
+        const cloudStorageContainer = document.getElementById("cloud-storage-container");
+
+        // iterate through each cloud storage
+        for (let i = 0; i < accountInformationJSON.cloudStorage.length; i++) {
+            const rowContainer = document.createElement("div");
+            rowContainer.classList.add("flex-box", "row-container");
+
+            const storageBox = document.createElement("div");
+            storageBox.classList.add("flex-box", "storage");
+
+            const storageImg = document.createElement("img");
+            const cloudStorageName = document.createElement("span");
+            if (accountInformationJSON.cloudStorage[i].cloudStorage == "DropBox") {
+                storageImg.src = "img/dropbox.png";
+                cloudStorageName.textContent = "DropBox";
+            }
+            if (accountInformationJSON.cloudStorage[i].cloudStorage == "Google") {
+                storageImg.src = "img/google.jpg";
+                cloudStorageName.textContent = "Google";
+            }
+            if (accountInformationJSON.cloudStorage[i].cloudStorage == "AWS") {
+                storageImg.src = "img/amazon.png";
+                cloudStorageName.textContent = "AWS";
+            }
+            if (accountInformationJSON.cloudStorage[i].cloudStorage == "iCloud") {
+                storageImg.src = "img/icloud.png";
+                cloudStorageName.textContent = "iCloud";
+            }
+
+            storageBox.append(storageImg);
+            storageBox.append(cloudStorageName);
+            rowContainer.append(storageBox);
+
+             // creating and appending remove button
+            const changeBtn = document.createElement("button");
+            changeBtn.className = "change-btn";
+            changeBtn.textContent = "Change";
+            changeBtn.type = "button";
+            changeBtn.addEventListener("click", redirect);
+            rowContainer.append(changeBtn);
+
+            cloudStorageContainer.append(rowContainer);
+        }
+
+    })
+
+    // redirect function to change cloud storage
+    function redirect(){
+        const username = document.getElementById("username").textContent;
+        const fname = document.getElementById("fname").value;
+        const lname = document.getElementById("lname").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        localStorage.setItem('username', username);
+        localStorage.setItem('fname', fname);
+        localStorage.setItem('lname', lname);
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+
+        window.location.href = "cloudStorage.html?edit=1";
+    }
+
+    // edit username
+    function editUsername(){
+        const editInput = document.getElementById("editInput");
+        const saveButton = document.getElementById("saveButton");
+        const editIcon = document.getElementById("edit-username");
+        const username = document.getElementById("username");
+        // console.log("clicked");
+        // console.log(username)
+        editInput.value = username.textContent;
+        editInput.style.display = "inline";
+        saveButton.style.display = "inline";
+        saveButton.type = "button";
+        editIcon.style.display = "none";
+        username.style.display = "none";
+        saveButton.addEventListener("click", saveUsername)
+        
+    }
+
+    // save username
+    function saveUsername(){
+        const editInput = document.getElementById("editInput");
+        const saveButton = document.getElementById("saveButton");
+        const username = document.getElementById("username");
+        const editIcon = document.getElementById("edit-username");
+        username.firstChild.textContent = editInput.value;
+        editInput.style.display = "none";
+        saveButton.style.display = "none";
+        editIcon.style.display = "inline";
+        username.style.display = "inline";
+    }
+
+    // submit form
+    function submitForm(){
+        const username = document.getElementById("username").textContent;
+        const fname = document.getElementById("fname").value;
+        const lname = document.getElementById("lname").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        console.log(username);
+        console.log(fname);
+        console.log(lname);
+        console.log(email);
+        console.log(password);
+    }
+
+</script>
 </html>

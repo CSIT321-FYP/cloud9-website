@@ -703,12 +703,37 @@ header a {
 }
 
 /* Edit Account */
+
+.profile {
+    align-items: center;
+}
+
+.profile input {
+    margin-left: 30px;
+    height: 40px;
+    font-size: 22px;
+    font-weight: 700;
+    border: none;
+    width: 20%;
+}
+
+.profile button {
+    background-color: #2578fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 40px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;    
+}
+
 .content {
     margin-left: 40px;
     max-width: 90%;
 }
 
-.profile img {
+.avatar img {
     width: 90px;
     height: auto;
 }
