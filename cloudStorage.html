@@ -25,7 +25,7 @@
         <div class="back-button" id="back-button" onclick="redirect()">
             <i class="fa-solid fa-arrow-left"></i>
         </div>
-
+        <!-- <div class="flex-box storage-container"> -->
         <div class="flex-box payment">
             <div class="payment-info flex-box">
                 <img src="img/dropbox.png">
@@ -106,8 +106,10 @@
                     <i class="fa-solid fa-check"></i>
                     <p>Integration with AWS Ecosystem</p>
                 </div>
+                <!-- <button class="connect-button" type="button">Connect</button> -->
             </div>
         </div>
+        <!-- </div> -->
     </div>
 </body>
 <script>
@@ -126,6 +128,30 @@
 
         usernameContainer.append(p);
         usernameContainer.append(img);
+
+        //hover effect
+        const boxes = document.querySelectorAll(".payment-info");
+        const connectButton = document.createElement("button");
+        connectButton.className = "connect-button"
+        connectButton.textContent = "Connect";
+        connectButton.type = "Button";
+
+        boxes.forEach((box) => {
+            box.addEventListener("mouseover", () => {
+                box.classList.add("enlarged");
+                box.style.marginLeft = "50px";
+                box.style.marginRight = "50px";
+                box.append(connectButton);
+            });
+
+            box.addEventListener("mouseout", () => {
+                box.classList.remove("enlarged");
+                box.style.marginLeft = "0px";
+                box.style.marginRight = "0px";
+                connectButton.remove();
+                // box.remove(connectButton);
+            })
+        })
     })
 
     function redirect(){
