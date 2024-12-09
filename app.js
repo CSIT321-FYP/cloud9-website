@@ -5,6 +5,8 @@ const path = require('path');
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use('/views/assets', express.static('./views/assets/'))
+app.use('/img', express.static('./views/assets/img'))
 
 // Route to render an HTML page
 app.get('/', (req, res) => {
