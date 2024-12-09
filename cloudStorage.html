@@ -130,26 +130,29 @@
         usernameContainer.append(img);
 
         //hover effect
-        const boxes = document.querySelectorAll(".payment-info");
         const connectButton = document.createElement("button");
         connectButton.className = "connect-button"
         connectButton.textContent = "Connect";
         connectButton.type = "Button";
 
+
+        const boxes = document.querySelectorAll(".payment-info");
+        // connect button onclick
         boxes.forEach((box) => {
-            box.addEventListener("mouseover", () => {
+            box.addEventListener("mouseenter", () => {
                 box.classList.add("enlarged");
                 box.style.marginLeft = "50px";
                 box.style.marginRight = "50px";
                 box.append(connectButton);
+                connectButton.addEventListener("click", toCloudStorage);
+
             });
 
-            box.addEventListener("mouseout", () => {
+            box.addEventListener("mouseleave", () => {
                 box.classList.remove("enlarged");
                 box.style.marginLeft = "0px";
                 box.style.marginRight = "0px";
                 connectButton.remove();
-                // box.remove(connectButton);
             })
         })
     })
@@ -164,6 +167,12 @@
         } else {
             window.location.href = "index.html";
         }
+    }
+
+
+    // linking to respective cloud storage
+    function toCloudStorage(){
+        console.log("Redirecting...")
     }
     
 </script>
