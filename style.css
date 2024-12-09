@@ -261,10 +261,15 @@ header a {
     float: left;
 }
 
+.stars {
+    float: left;
+    margin-top: 5px;
+}
+
 .user-info h3, .user-info p{
     margin: 3px 13px;
     float: left;
-    width: 60%;
+    width: 70%;
     color: white;
 }
 
@@ -288,6 +293,15 @@ header a {
     padding: 0px 15px;
     font-size: 17px;
     height: auto;
+}
+
+.stars i {
+    /* color: gray; */
+    margin-right: 5px;
+}
+
+.stars i.gold {
+    color: gold;
 }
 
 /* FAQ */

@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
     <header>
@@ -199,8 +200,8 @@
 <script>
     // sameple array returned from db
     const sampleJSON = [
-        {name: "Alice", imgSrc:"img/sample-profile.png", username: "@Aliceusername", rating: "5", review: "Very good app! Best in the market"},
-        {name: "Bob", imgSrc:"img/sample-profile.png", username: "@Bobusername", rating: "5", review: "Did not regret subscribing to the premium version, must try for all!"},
+        {name: "Alice", imgSrc:"img/sample-profile.png", username: "@Aliceusername", rating: "2", review: "Very good app! Best in the market"},
+        {name: "Bob", imgSrc:"img/sample-profile.png", username: "@Bobusername", rating: "3", review: "Did not regret subscribing to the premium version, must try for all!"},
         {name: "Carol", imgSrc:"img/sample-profile.png", username: "@Carolusername", rating: "5", review: "Highly recommend for all to use"}
     ];
 
@@ -228,11 +229,23 @@
         stars.src = "img/stars.png";
         stars.style.marginTop = "5px";
 
+        const starsDiv = document.createElement("div");
+        starsDiv.classList.add("stars");
+
+        for (let a = 1; a <= 5; a++) {
+            const star = document.createElement("i");
+            star.classList.add("fas", "fa-star");
+            if (a <= parseInt(sampleJSON[i].rating)) {
+                star.classList.add("gold");
+            }
+            starsDiv.appendChild(star);
+        }
+
         // append information to user-info div
         userInfoDiv.append(profilePic);
         userInfoDiv.append(name);
         userInfoDiv.append(username);
-        userInfoDiv.append(stars);
+        userInfoDiv.append(starsDiv);
 
         // create review-info div
         const reviewInfoDiv = document.createElement("div");
