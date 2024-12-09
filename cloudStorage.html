@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clous Storage</title>
+    <title>Cloud Storage</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -18,7 +18,14 @@
                 <!-- <p>John_doe</p> -->
                 <!-- <img src="img/user-profile.png"> -->
             </div>
-        </div>  
+        </div> 
+        <div id="drop-down" style="display: none;">
+            <ul>
+                <a href= "cloudStorage.html"><li>Link to cloud storage</li></a>
+                <a href= "editAccount.html"><li>Edit Account</li></a>
+                <a href= "index.html"><li>Log Out</li></a>
+            </ul>
+        </div>
     </header>
 
     <div class="row">
@@ -125,6 +132,7 @@
         p.textContent = sampleJSON.username;
         const img = document.createElement("img");
         img.src = sampleJSON.profilepic;
+        img.addEventListener("click", dropDown)
 
         usernameContainer.append(p);
         usernameContainer.append(img);
@@ -169,6 +177,14 @@
         }
     }
 
+    function dropDown(){
+        const dropDown = document.getElementById("drop-down");
+        if (dropDown.style.display == "block") {
+            dropDown.style.display = "none";
+        } else {
+            dropDown.style.display = "block";
+        }
+    }
 
     // linking to respective cloud storage
     function toCloudStorage(){
