@@ -52,7 +52,7 @@
                 </div>
                 <div class="input-group">
                     <i class="fa-regular fa-envelope"></i>
-                    <input type="text" id="email" placeholder="Email" required>
+                    <input type="email" id="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
@@ -60,10 +60,10 @@
                 </div>
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
-                    <input type="text" id="cpassword" placeholder="Confirm Password" required>
+                    <input type="text" id="cpassword" placeholder="Confirm Password" oninput="checkPassword()" required>
                 </div>
-                <div class="signup-button">
-                    <button type="button" onclick="submitForm()">SIGN UP</button>
+                <div class="signup-button flex-box" id="error-box">
+                    <button type="submit" onclick="submitForm()">SIGN UP</button>
                 </div>
             </div>
         </div>
@@ -80,7 +80,38 @@
     </div>
 </body>
 <script>
+
+    function checkPassword(){
+        // check if passwords are the same
+
+
+        const password = document.getElementById("password").value;
+        const cpassword = document.getElementById("cpassword").value;
+        const errorBox = document.getElementById("error-box")
+
+        // Clear any previous error messages
+        // errorText.textContent = "";
+
+        let errorText = document.querySelector("#error-box .errorText");
+
+        // Check if passwords match
+        if (password !== cpassword) {
+            if(!errorText) {
+                const errorText = document.createElement("p");
+                errorText.className = "errorText";
+                errorBox.appendChild(errorText)
+                errorText.textContent = "Passwords do not match!";
+            }
+        } else {
+            if (errorText){
+                errorText.remove()
+            }
+        }
+
+    }
+
     function submitForm(){
+        checkForm();
         const fname = document.getElementById("fname").value;
         const lname = document.getElementById("lname").value;
         const username = document.getElementById("username").value;
@@ -94,5 +125,7 @@
         console.log(password);
         console.log(cpassword);
     }
+
+
 </script>
 </html>
