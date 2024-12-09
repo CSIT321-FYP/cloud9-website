@@ -37,7 +37,7 @@
             <p>Enter your personal details</p>
             <p>and get started with us!</p>
 
-            <div class="flex-box particulars">
+            <form class="flex-box particulars">
                 <div class="input-group">
                     <i class="fas fa-id-card"></i>
                     <input type="text" id="fname" placeholder="First Name" required>
@@ -63,9 +63,9 @@
                     <input type="text" id="cpassword" placeholder="Confirm Password" oninput="checkPassword()" required>
                 </div>
                 <div class="signup-button flex-box" id="error-box">
-                    <button type="submit" onclick="submitForm()">SIGN UP</button>
+                    <button type="button" onclick="submitForm()">SIGN UP</button>
                 </div>
-            </div>
+            </form>
         </div>
 
         <div class="signup-passage">
