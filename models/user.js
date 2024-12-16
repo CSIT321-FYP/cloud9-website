@@ -1,15 +1,10 @@
+const { pool } = require('../db/db')
+const bcrypt = require('bcrypt')
 class User {
-    // Dummy database
-    static users = [
-        new User(1, 'jd', 'John', 'Doe'),
-        new User(2, 'jo', 'Jonathan', 'Joestar'),
-        new User(3, 'jojo', 'Joseph', 'Joestar'),
-        new User(4, 'jotaro', 'Jotaro', 'Kujo'),
-    ]
-
-    constructor(id, username, firstName, lastName,) {
+    constructor(id, email, hashedPassword, firstName, lastName) {
         this.id = id;
-        this.username = username
+        this.email = email;
+        this.hashedPassword = hashedPassword;
         this.firstName = firstName
         this.lastName = lastName;
     }
@@ -18,11 +13,34 @@ class User {
         return User.users
     }
 
+    static async getUserByEmail(email) {
+        // Fetch user from the database
+        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+        const userData = result.rows[0];
 
-    static createUser(username, firstName, lastName) {
-        let newUser = new User(username, firstName, lastName)
-        users.push(newUser);
-        console.log(users)
+        if (!userData) {
+            throw new Error('User not found');
+        }
+
+        let { id, password, firstName, lastName } = userData;
+
+        let user = new User(id, email, password, firstName, lastName)
+
+        console.log(user)
+        return user;
+    }
+
+    static async createUser(email, password, firstName, lastName,) {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const result = await pool.query(
+            'INSERT INTO users (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *',
+            [email, hashedPassword, firstName, lastName,]
+        );
+
+        let { id } = result.rows[0];
+
+        let user = new User(id, email, hashedPassword, firstName, lastName)
+        return user;
     }
 
     static getUserById(id) {
