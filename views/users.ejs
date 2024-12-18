@@ -10,9 +10,12 @@
 </head>
 
 <body>
-    <h1>
-        <%= message %>
-    </h1>
+    <ul>
+        <% users.forEach(function(user){ %>
+            <%- user.firstName %>
+                <% }); %>
+    </ul>
+
 </body>
 
 </html>
