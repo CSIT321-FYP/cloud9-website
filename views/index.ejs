@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,10 @@
     <link rel="stylesheet" href="/views/assets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="row flex-box" style="align-items: center;">
@@ -26,15 +29,17 @@
             <div class="login">
                 <h2><a href="loginPage.html">Log In</a> / <a href="signup.html">Sign Up</a></h2>
             </div>
-        </div>  
+        </div>
     </header>
     <!-- MASTHEAD -->
     <section class="row flex-box masthead">
         <div class="masthead-content">
             <img src="img/Cl9ud.png">
             <p>
-                Our application is designed to provide seamless, client-side encryption and decryption for files stored in the cloud. 
-                With a focus on privacy, the app ensures that sensitive files remain unreadable to anyone without the correct encryption key by encrypting 
+                Our application is designed to provide seamless, client-side encryption and decryption for files stored
+                in the cloud.
+                With a focus on privacy, the app ensures that sensitive files remain unreadable to anyone without the
+                correct encryption key by encrypting
                 files before they&apos;re uploaded and decrypting them upon download.
             </p>
             <button>Get it now!</button>
@@ -62,11 +67,13 @@
                 </div>
                 <div>
                     <h1>CLOUD INTEGRATION</h1>
-                    <p>Effortlessly encrypts files before upload and decrypts on download, ensuring secure and private cloud storage.</p>
+                    <p>Effortlessly encrypts files before upload and decrypts on download, ensuring secure and private
+                        cloud storage.</p>
                 </div>
                 <div>
                     <h1>DECRYPTION</h1>
-                    <p>We provide performant and reliable decryption functionality, prioritising ease of use without sacrificing security or performance.</p>
+                    <p>We provide performant and reliable decryption functionality, prioritising ease of use without
+                        sacrificing security or performance.</p>
                 </div>
                 <div>
                     <h1>STORAGE</h1>
@@ -74,7 +81,8 @@
                 </div>
                 <div>
                     <h1>SHARING</h1>
-                    <p>We allow multiple users, applications, to access the same data resources. It improves efficiency, increase transparency, and foster collaboration.</p>
+                    <p>We allow multiple users, applications, to access the same data resources. It improves efficiency,
+                        increase transparency, and foster collaboration.</p>
                 </div>
             </div>
         </div>
@@ -195,18 +203,18 @@
         </div>
     </section>
 </body>
- <!-- JAVASCRIPT -->
+<!-- JAVASCRIPT -->
 <script>
     // sameple array returned from db
     const sampleJSON = [
-        {name: "Alice", imgSrc:"img/sample-profile.png", username: "@Aliceusername", rating: "5", review: "Very good app! Best in the market"},
-        {name: "Bob", imgSrc:"img/sample-profile.png", username: "@Bobusername", rating: "5", review: "Did not regret subscribing to the premium version, must try for all!"},
-        {name: "Carol", imgSrc:"img/sample-profile.png", username: "@Carolusername", rating: "5", review: "Highly recommend for all to use"}
+        {name: "Alice", imgSrc: "img/sample-profile.png", username: "@Aliceusername", rating: "5", review: "Very good app! Best in the market"},
+        {name: "Bob", imgSrc: "img/sample-profile.png", username: "@Bobusername", rating: "5", review: "Did not regret subscribing to the premium version, must try for all!"},
+        {name: "Carol", imgSrc: "img/sample-profile.png", username: "@Carolusername", rating: "5", review: "Highly recommend for all to use"}
     ];
 
     const reviewContainer = document.getElementById("reviews-container");
 
-    for (let i=0; i < sampleJSON.length; i++){
+    for (let i = 0; i < sampleJSON.length; i++) {
         // create user-info div
         const userInfoDiv = document.createElement("div");
         userInfoDiv.className = "user-info";
@@ -236,8 +244,8 @@
 
         // create review-info div
         const reviewInfoDiv = document.createElement("div");
-        reviewInfoDiv.className =  "review-info";
-        
+        reviewInfoDiv.className = "review-info";
+
         // create p element
         const p = document.createElement("p");
         p.textContent = sampleJSON[i].review;
@@ -262,4 +270,5 @@
 
     }
 </script>
+
 </html>
