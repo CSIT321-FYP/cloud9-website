@@ -20,3 +20,4 @@ const runMigrations = async () => {
 
 runMigrations().catch(console.error);
 
+module.exports = runMigrations

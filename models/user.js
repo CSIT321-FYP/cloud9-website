@@ -46,7 +46,6 @@ class User {
     static getUserById(id) {
         let user = this.users.find(user => user.id == id)
         if (user) {
-            console.log(user)
             return user
         } else {
             let err = new Error("User not found")

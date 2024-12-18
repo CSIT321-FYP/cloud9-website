@@ -3,15 +3,17 @@ require('dotenv').config({
     override: true,
 })
 const {
+    ENVIRONMENT,
     DB_USER,
-    DB_NAME,
+    DB_DEV,
+    DB_TEST,
     DB_PASSWORD,
     DB_PORT,
 } = process.env
 
 const pool = new Pool({
     user: DB_USER,
-    database: DB_NAME,
+    database: ENVIRONMENT == 'test' ? DB_TEST : DB_DEV,
     password: DB_PASSWORD,
     port: DB_PORT,
     host: 'localhost',

@@ -6,3 +6,11 @@ CREATE TABLE users (
     lastName VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE user_google (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    google_refresh_token TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
