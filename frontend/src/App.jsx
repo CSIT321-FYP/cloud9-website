@@ -28,6 +28,13 @@ const themeOptions = {
         body2: {
             fontSize: '1.5rem',
         },
+        h3: {
+            color: '#2578fc',
+            fontSize: '1.5rem',
+            fontWeight: 900,
+            letterSpacing: '0.25rem',
+            textTransform: 'uppercase'
+        },
     },
 };
 

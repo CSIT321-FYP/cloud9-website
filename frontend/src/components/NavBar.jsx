@@ -14,9 +14,6 @@ const NavBar = () => {
                     </Button>
                 </div>
                 <div>
-                    <Typography variant="h6">About</Typography>
-                </div>
-                <div>
                     <Typography variant="h6">Core Functions</Typography>
                 </div>
                 <div>
@@ -25,13 +22,13 @@ const NavBar = () => {
                 <div>
                     <Typography variant="h6">Pricing</Typography>
                 </div>
-                <Button sx={{ textTransform: 'none', color: 'white' }} onClick={() => {
+                <Button sx={{ textTransform: 'none', color: 'white', ml: 'auto' }} onClick={() => {
                     navigate('/login')
                 }}>
-                    <Typography variant="h5" sx={{ ml: '2rem' }}>Log In / Sign Up</Typography>
+                    <Typography variant="h5" >Log In / Sign Up</Typography>
                 </Button>
             </Container>
-        </Box>
+        </Box >
     )
 }
 
