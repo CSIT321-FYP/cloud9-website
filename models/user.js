@@ -26,7 +26,6 @@ class User {
 
         let user = new User(id, email, password, firstName, lastName)
 
-        console.log(user)
         return user;
     }
 

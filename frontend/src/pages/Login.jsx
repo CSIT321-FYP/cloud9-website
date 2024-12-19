@@ -4,6 +4,11 @@ import { Box, Container } from "@mui/system"
 import NavBar from "../components/NavBar"
 
 const Login = () => {
+    const startGoogleLogin = () => {
+        const redirectUri = encodeURIComponent(window.location.origin + '/auth-success');
+        window.location.href = `http://localhost:3000/users/google?redirect_uri=${redirectUri}`;
+    };
+
     return (
         <div>
             <NavBar />
@@ -22,10 +27,10 @@ const Login = () => {
                             <TextField id="lastName" label="Last Name" variant="outlined" />
                         </Box>
                         <TextField id="email" label="Email" variant="outlined" />
-                        <TextField id="password" label="Password" variant="outlined" />
+                        <TextField id="password" label="Password" variant="outlined" type={'password'} />
 
                         <Button variant="contained">Register</Button>
-                        <Button variant="outlined" startIcon={<GoogleIcon />}>
+                        <Button variant="outlined" startIcon={<GoogleIcon />} onClick={startGoogleLogin} >
                             Sign In With Google
                         </Button>
                         <Button variant="text" >

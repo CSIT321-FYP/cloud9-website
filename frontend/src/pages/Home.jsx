@@ -1,6 +1,7 @@
 import { Box, Button, Container, List, ListItem, Paper, Typography } from "@mui/material"
 import Grid from '@mui/material/Grid2';
 import NavBar from "../components/NavBar"
+import { useAuth } from "../hooks/AuthContext";
 
 const Item = ({ title, description }) => {
     return (
@@ -17,6 +18,7 @@ const Item = ({ title, description }) => {
 }
 
 const Home = () => {
+
     return (
         <div>
             <NavBar />

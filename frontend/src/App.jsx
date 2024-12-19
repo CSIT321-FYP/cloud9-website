@@ -7,6 +7,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
+import AuthSuccess from './pages/AuthSuccess';
+import { AuthProvider } from './hooks/AuthContext';
 
 
 const themeOptions = {
@@ -44,13 +46,16 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <Routes>
-                <Route index element={<Home />} />
-                <Route path="about" element={<About />} />
+            <AuthProvider>
+                <Routes>
+                    <Route index element={<Home />} />
+                    <Route path="about" element={<About />} />
 
-                <Route path="login" element={<Login />} />
-                <Route path="register" element={<Register />} />
-            </Routes>
+                    <Route path="login" element={<Login />} />
+                    <Route path="register" element={<Register />} />
+                    <Route path="auth-success" element={<AuthSuccess />} />
+                </Routes>
+            </AuthProvider>
         </ThemeProvider>
     );
 }

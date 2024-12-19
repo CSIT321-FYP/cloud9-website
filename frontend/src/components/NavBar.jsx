@@ -1,7 +1,9 @@
 import { Box, Button, Container, Typography } from "@mui/material"
 import { Link, useNavigate } from "react-router"
+import { useAuth } from "../hooks/AuthContext";
 
 const NavBar = () => {
+    const { token } = useAuth();
     const navigate = useNavigate();
     return (
         <Box sx={{ backgroundColor: '#2578FC', color: 'white', p: '1rem' }}>
@@ -22,11 +24,18 @@ const NavBar = () => {
                 <div>
                     <Typography variant="h6">Pricing</Typography>
                 </div>
-                <Button sx={{ textTransform: 'none', color: 'white', ml: 'auto' }} onClick={() => {
-                    navigate('/login')
-                }}>
-                    <Typography variant="h5" >Log In / Sign Up</Typography>
-                </Button>
+                {token &&
+                    <div>
+                        Logged In
+                    </div>
+                }
+                {!token &&
+                    <Button sx={{ textTransform: 'none', color: 'white', ml: 'auto' }} onClick={() => {
+                        navigate('/login')
+                    }}>
+                        <Typography variant="h5" >Log In / Sign Up</Typography>
+                    </Button>
+                }
             </Container>
         </Box >
     )
