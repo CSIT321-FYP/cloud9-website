@@ -22,9 +22,9 @@ class User {
             throw new Error('User not found');
         }
 
-        let { id, password, firstName, lastName } = userData;
+        let { id, password, firstname, lastname } = userData;
 
-        let user = new User(id, email, password, firstName, lastName)
+        let user = new User(id, email, password, firstname, lastname)
 
         return user;
     }

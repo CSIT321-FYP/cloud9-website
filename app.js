@@ -5,6 +5,9 @@ const routerMiddleware = require('./middleware/routerMiddleware')
 const errorMiddleware = require('./middleware/errorMiddleware');
 const passport = require('passport');
 const session = require('express-session');
+const cors = require('cors')
+
+app.use(cors())
 
 
 // Load environment variables

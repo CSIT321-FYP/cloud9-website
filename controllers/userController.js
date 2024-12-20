@@ -28,10 +28,14 @@ function handleGetUsers(req, res, next) {
     res.render('users', { users, title: 'Users' },);
 }
 
-function handleGetUser(req, res, next) {
-    console.log(req)
-    const user = User.getUserById(req.query.id)
-    res.json(user)
+async function handleGetUser(req, res, next) {
+    const user = req.user
+    if (!user) res.status(404).send("Unauthorized")
+
+    const result = await User.getUserByEmail(user.email)
+
+    delete result.hashedPassword
+    res.json(result)
 }
 
 async function handleRegister(req, res, next) {

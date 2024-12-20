@@ -86,7 +86,7 @@ async function handleGoogleCallback(req, res, next) {
 
 
     // Redirect to the original `redirect_uri` with a session token or status
-    const frontendRedirectURL = `${state}?status=success&token=${encodeURIComponent(token)}`;
+    const frontendRedirectURL = `${state}?status=success&user=${encodeURIComponent(token)}`;
     res.redirect(frontendRedirectURL);
 }
 

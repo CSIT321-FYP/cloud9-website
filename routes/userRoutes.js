@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const { validateRegister, validateLogin } = require('../middleware/validationMiddleware');
 const googleRoutes = require('../routes/googleRoutes')
 
-router.get('/', handleGetUsers)
+router.get('/', authMiddleware, handleGetUser)
 // router.get('/profile', handleGetUser)
 
 router.get('/profile', (req, res) => {
