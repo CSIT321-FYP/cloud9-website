@@ -7,6 +7,7 @@ const authenticateJWT = (req, res, next) => {
     const secret = process.env.JWT_SECRET;
 
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        console.log(req)
         return res.status(401).json({ error: 'Authorization header missing or improperly formatted' });
     }
 
@@ -23,6 +24,7 @@ const authenticateJWT = (req, res, next) => {
         req.user = user;
 
         // Proceed to the next middleware or route handler
+        console.log("Authenticated JWT")
         next();
     });
 };

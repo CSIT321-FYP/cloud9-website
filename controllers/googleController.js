@@ -3,6 +3,7 @@ const crypto = require('crypto')
 const User = require('../models/user');
 const UserGoogle = require('../models/user_google');
 const jwt = require('jsonwebtoken')
+const fs = require('fs')
 // Configure OAuth2 client
 const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
@@ -133,9 +134,90 @@ async function handleGetUserProfile(req, res, next) {
     }
 }
 
+async function handleGetDriveFiles(req, res, next) {
+    const { access_token } = req.body
+    if (!access_token) res.status(400).send("No access token")
+
+    try {
+        // Set the refresh token in the OAuth2 client
+        oauth2Client.setCredentials({ access_token: access_token });
+
+        // Fetch user profile
+        const { data } = await google
+            .drive({ version: 'v3', auth: oauth2Client })
+            .files.list()
+
+        // Return user profile
+        res.json(data)
+    } catch (error) {
+        console.error('Error retrieving files', error);
+        next(error)
+    }
+}
+
+async function handleGetDriveFile(req, res, next) {
+    const { access_token, fileId } = req.body
+    if (!access_token) res.status(400).send("No access token")
+
+    try {
+        // Set the refresh token in the OAuth2 client
+        oauth2Client.setCredentials({ access_token: access_token });
+
+        // Fetch user profile
+        const { data } = await google
+            .drive({ version: 'v3', auth: oauth2Client })
+            .files.get({ fileId, fields: 'parents' })
+
+        // Return user profile
+        res.json(data)
+    } catch (error) {
+        console.error('Error retrieving files', error);
+        next(error)
+    }
+}
+
+async function handleUploadFile(req, res, next) {
+    console.log("HERE")
+    if (!req.file) return res.status(400).send("Missing file data")
+    const filePath = req.file.path;
+    const fileName = req.file.originalname;
+    const { access_token, fileId } = req.body
+    if (!access_token) return res.status(400).send("No access token")
+
+
+    try {
+        // Set the refresh token in the OAuth2 client
+        oauth2Client.setCredentials({ access_token: access_token });
+
+        // Upload to Google Drive
+        const response = await google.drive({ version: 'v3', auth: oauth2Client }).files.create({
+            requestBody: {
+                name: fileName,
+                isEncrypted: 'aes256'
+            },
+            media: {
+                mimeType: req.file.mimetype,
+                body: fs.createReadStream(filePath),
+            },
+        });
+
+        // Clean up local file after upload
+        fs.unlinkSync(filePath);
+
+        console.log('File uploaded to Google Drive:', response.data);
+        res.json({ fileId: response.data.id });
+    } catch (error) {
+        console.error('Error uploading to Google Drive:', error);
+        res.status(400).send('Error uploading file');
+    }
+}
+
 module.exports = {
     handleSignInWithGoogle,
     handleGoogleCallback,
     handleGetAccessToken,
     handleGetUserProfile,
+    handleGetDriveFiles,
+    handleGetDriveFile,
+    handleUploadFile,
 }
