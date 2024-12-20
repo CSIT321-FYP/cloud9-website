@@ -72,7 +72,7 @@ async function handleGoogleCallback(req, res, next) {
             const userGoogle = await UserGoogle.createUser(user.id, tokens.refresh_token)
         }
     } catch (err) {
-        res.status(500).json({ message: 'Internal server error' });
+        return res.status(500).json({ message: 'Internal server error' });
     }
 
     // Generate JWT
@@ -136,7 +136,7 @@ async function handleGetUserProfile(req, res, next) {
 
 async function handleGetDriveFiles(req, res, next) {
     const { access_token } = req.body
-    if (!access_token) res.status(400).send("No access token")
+    if (!access_token) return res.status(400).send("No access token")
 
     try {
         // Set the refresh token in the OAuth2 client
@@ -148,7 +148,7 @@ async function handleGetDriveFiles(req, res, next) {
             .files.list()
 
         // Return user profile
-        res.json(data)
+        return res.json(data)
     } catch (error) {
         console.error('Error retrieving files', error);
         next(error)
@@ -157,7 +157,7 @@ async function handleGetDriveFiles(req, res, next) {
 
 async function handleGetDriveFile(req, res, next) {
     const { access_token, fileId } = req.body
-    if (!access_token) res.status(400).send("No access token")
+    if (!access_token) return res.status(400).send("No access token")
 
     try {
         // Set the refresh token in the OAuth2 client
@@ -181,7 +181,8 @@ async function handleUploadFile(req, res, next) {
     if (!req.file) return res.status(400).send("Missing file data")
     const filePath = req.file.path;
     const fileName = req.file.originalname;
-    const { access_token, fileId } = req.body
+    const { fileId } = req.body
+    const { access_token } = req.headers
     if (!access_token) return res.status(400).send("No access token")
 
 
@@ -212,6 +213,31 @@ async function handleUploadFile(req, res, next) {
     }
 }
 
+async function handleDownloadFile(req, res, next) {
+    const { fileId } = req.params
+    const { access_token } = req.headers
+
+    if (!access_token) return res.status(400).send("No access token")
+
+    if (!fileId) return res.status(400).send("No file ID")
+
+    try {
+        // Set the refresh token in the OAuth2 client
+        oauth2Client.setCredentials({ access_token: access_token });
+
+        // Fetch user profile
+        const { data } = await google
+            .drive({ version: 'v3', auth: oauth2Client })
+            .files.get({ fileId, alt: 'media' })
+
+        // Return user profile
+        res.json(data)
+    } catch (error) {
+        console.error('Error retrieving files', error);
+        next(error)
+    }
+}
+
 module.exports = {
     handleSignInWithGoogle,
     handleGoogleCallback,
@@ -220,4 +246,5 @@ module.exports = {
     handleGetDriveFiles,
     handleGetDriveFile,
     handleUploadFile,
+    handleDownloadFile,
 }
