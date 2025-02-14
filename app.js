@@ -26,6 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/views/assets', express.static('./views/assets/'))
 app.use('/img', express.static('./views/assets/img'))
 
+
 app.get('/', (req, res, next) => {
     res.render('index')
 })
