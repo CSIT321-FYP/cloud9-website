@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Storage</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="row flex-box" style="align-items: center;">
+            <div class="links flex-box">
+                <h1>Connect to cloud storage</h1>
+            </div>
+            <div class="username flex-box" id="usernameContainer">
+                <!-- <p>John_doe</p> -->
+                <!-- <img src="img/user-profile.png"> -->
+            </div>
+        </div> 
+        <div id="drop-down" style="display: none;">
+            <ul>
+                <a href= "cloudStorage.html"><li>Link to cloud storage</li></a>
+                <a href= "editAccount.html"><li>Edit Account</li></a>
+                <a href= "index.html"><li>Log Out</li></a>
+            </ul>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="back-button" id="back-button" onclick="redirect()">
+            <i class="fa-solid fa-arrow-left"></i>
+        </div>
+        <!-- <div class="flex-box storage-container"> -->
+        <div class="flex-box payment">
+            <div class="payment-info flex-box">
+                <img src="img/dropbox.png">
+                <h2>Dropbox</h2>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>User-Friendly Interface</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Offline Access</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Smart Sync</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Collaboration features</p>
+                </div>
+            </div>
+            <div class="payment-info flex-box">
+                <img src="img/google.jpg">
+                <h2>Google</h2>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Scalability</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Global Availability</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Security</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Integrations</p>
+                </div>
+            </div>
+            <div class="payment-info flex-box">
+                <img src="img/icloud.png">
+                <h2>iCloud</h2>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Deep Apple Ecosystem</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Ease of use</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Family Sharing</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Continuity Features</p>
+                </div>
+            </div>
+            <div class="payment-info flex-box">
+                <img src="img/amazon.png">
+                <h2>Amazon</h2>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Global Presence</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Versatility</p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Scalability </p>
+                </div>
+                <div class="tick-text flex-box">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Integration with AWS Ecosystem</p>
+                </div>
+                <!-- <button class="connect-button" type="button">Connect</button> -->
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        // sample JSON returned from db
+        sampleJSON = {
+            username: "John_doe",
+            profilepic: "img/user-profile.png" // replace with image path from db
+        }
+
+        usernameContainer = document.getElementById("usernameContainer");
+        const p = document.createElement("p");
+        p.textContent = sampleJSON.username;
+        const img = document.createElement("img");
+        img.src = sampleJSON.profilepic;
+        img.addEventListener("click", dropDown)
+
+        usernameContainer.append(p);
+        usernameContainer.append(img);
+
+        //hover effect
+        const connectButton = document.createElement("button");
+        connectButton.className = "connect-button"
+        connectButton.textContent = "Connect";
+        connectButton.type = "Button";
+
+
+        const boxes = document.querySelectorAll(".payment-info");
+        // connect button onclick
+        boxes.forEach((box) => {
+            box.addEventListener("mouseenter", () => {
+                box.classList.add("enlarged");
+                box.style.marginLeft = "50px";
+                box.style.marginRight = "50px";
+                box.append(connectButton);
+                connectButton.addEventListener("click", toCloudStorage);
+
+            });
+
+            box.addEventListener("mouseleave", () => {
+                box.classList.remove("enlarged");
+                box.style.marginLeft = "0px";
+                box.style.marginRight = "0px";
+                connectButton.remove();
+            })
+        })
+    })
+
+    function redirect(){
+        const params = new URLSearchParams(window.location.search);
+
+        const from = params.get("edit");
+
+        if (from == 1) {
+            window.location.href = "editAccount.html";
+        } else {
+            window.location.href = "index.html";
+        }
+    }
+
+    function dropDown(){
+        const dropDown = document.getElementById("drop-down");
+        if (dropDown.style.display == "block") {
+            dropDown.style.display = "none";
+        } else {
+            dropDown.style.display = "block";
+        }
+    }
+
+    // linking to respective cloud storage
+    function toCloudStorage(){
+        console.log("Redirecting...")
+    }
+    
+</script>
+</html>

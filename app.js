@@ -5,6 +5,9 @@ const routerMiddleware = require('./middleware/routerMiddleware')
 const errorMiddleware = require('./middleware/errorMiddleware');
 const passport = require('passport');
 const session = require('express-session');
+const cors = require('cors')
+
+app.use(cors())
 
 
 // Load environment variables
@@ -20,6 +23,16 @@ app.use(passport.initialize());
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use('/views/assets', express.static('./views/assets/'))
+app.use('/img', express.static('./views/assets/img'))
+
+
+app.get('/', (req, res, next) => {
+    res.render('index')
+})
+app.get('/login', (req, res, next) => {
+    res.render('loginPage')
+})
 
 // Set middleware
 app.use('/', routerMiddleware)

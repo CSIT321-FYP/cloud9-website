@@ -1,64 +1,33 @@
-const passport = require('passport');
-const bcrypt = require('bcrypt');
-const db = require('../db/db').pool; // Your database connection module
+const jwt = require('jsonwebtoken');
 
-const JwtStrategy = require('passport-jwt').Strategy;
-const ExtractJwt = require('passport-jwt').ExtractJwt;
-let opts = {}
-opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = process.env.JWT_SECRET;
-opts.issuer = 'accounts.examplesoft.com';
-opts.audience = 'yoursite.net';
+// Middleware to extract and verify JWT token
+const authenticateJWT = (req, res, next) => {
+    // Extract the Authorization header
+    const authHeader = req.headers.authorization;
+    const secret = process.env.JWT_SECRET;
 
-passport.use(
-    new JwtStrategy(opts, async (payload, done) => {
-        console.log('Authenticating')
-        console.log({ payload })
-        try {
-            const result = await db.query('SELECT * FROM users WHERE email = $1', [email]);
-            const user = result.rows[0];
-
-            console.log(result)
-
-            if (!user) return done(null, false, { message: 'Incorrect email or password.' });
-
-            const isValidPassword = await bcrypt.compare(password, user.password);
-            if (!isValidPassword) return done(null, false, { message: 'Incorrect username or password.' });
-
-            return done(null, user);
-        } catch (err) {
-            console.log(err)
-            return done(err);
-        }
-    })
-);
-
-passport.serializeUser((user, done) => {
-    done(null, user.id);
-});
-
-passport.deserializeUser(async (id, done) => {
-    try {
-        const result = await db.query('SELECT * FROM users WHERE id = $1', [id]);
-        done(null, result.rows[0]);
-    } catch (err) {
-        done(err);
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        console.log(req)
+        return res.status(401).json({ error: 'Authorization header missing or improperly formatted' });
     }
-});
 
-const authMiddleware = (strategy) => (req, res, next) => {
-    passport.authenticate(strategy, (err, user, info) => {
-        if (err) return next(err);
-        if (!user) return res.status(401).json({ message: info?.message || 'Unauthorized' });
+    // Get the token by removing 'Bearer '
+    const token = authHeader.split(' ')[1];
 
-        // Attach user to request object for downstream use if needed
+    // Verify the token using the provided secret
+    jwt.verify(token, secret, (err, user) => {
+        if (err) {
+            return res.status(403).json({ error: 'Invalid or expired token' });
+        }
+
+        // Attach user information to the request object
         req.user = user;
 
-        // Proceed to the next middleware or handler
+        // Proceed to the next middleware or route handler
+        console.log("Authenticated JWT")
         next();
-    })(req, res, next);
+    });
 };
 
-
-module.exports = authMiddleware
+module.exports = authenticateJWT;
 

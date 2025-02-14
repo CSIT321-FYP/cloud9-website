@@ -1,0 +1,978 @@
+body {
+    
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+}
+
+/* reusable classes */
+.row {
+    width: 90%;
+    margin: 0 auto;
+    /* text-align: center; */
+}
+
+.flex-box {
+    display: flex;
+    /* align-items: center; */
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.errorText {
+    color: red;
+    text-align: center;
+}
+
+#drop-down {
+    background-color: white;
+    box-shadow: #000000;
+    position: absolute;
+    right: 20px;
+    top: 70px;
+    width: 230px;
+    box-shadow: 2px 2px #888888;
+    border-radius: 10px;
+}
+
+#drop-down ul {
+    padding: 10px;
+    margin: 0px;
+}
+
+#drop-down li{
+    color: black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    list-style-type: none;
+    padding: 10px;
+}
+
+#drop-down a:last-child li{
+    border-bottom: none;
+}
+
+/**************************** LANDING PAGE ****************************/
+/* HEADER */
+header {
+    background-color: #2578fc;
+    color: white;
+    height: 90px;
+}
+
+.links {
+    margin-top: 6px;
+    align-items: center;
+    width: 80%;
+}
+
+.links ul {
+    list-style-type: none;
+    display: flex;
+    margin-left: 100px;
+    gap: 110px;
+}
+
+.links li {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.links h1 {
+    display: inline-block;
+}
+
+.login {
+    margin-top: 6px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+/* MASTHEAD */
+.masthead {
+    /* margin-top: 8%; */
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.masthead-content {
+    width: 40%;
+    font-size: 35px;
+}
+
+.masthead-content button {
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    background-color:  #2578fc;
+    border: none;
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+}
+
+.masthead-img {
+    height: 80%;
+}
+
+/* SOLUTIONS */
+
+.solutions {
+    height: 800px;
+    background-color: #94bdfd;
+}
+
+.solutions-content {
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.solutions-header h1 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+    color: white;
+    padding-top: 50px;
+    margin-bottom: 0;
+}
+
+.solutions-content div {
+    margin-top: 100px;
+    height: 210px;
+    width: 450px;
+    background-color: #D6E6FE;
+    border-radius: 10px;
+}
+
+.solutions-content div h1{
+    font-size: 36px;
+    color: #2578fc;
+}
+
+.solutions-content div p {
+    width: 90%;
+}
+
+.solutions-content div{
+    padding: 0px 20px;
+}
+
+/* PRICING */
+
+.pricing {
+    height: 800px;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 40px;
+}
+
+.pricing-content {
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.price span {
+    font-size: 96px;
+}
+
+.premium {
+    background-color: #2578fc;
+    color: white;
+}
+
+.plan-info {
+    flex-direction: column;
+    align-items: center;
+    width: 370px;
+    padding: 50px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.plan-benefits {
+    align-items: center;
+}
+
+.pricing-content p {
+    width: 180px;
+    margin-left: 20px;
+}
+
+.pricing-button-free {
+    margin-top: 50px;
+    padding: 15px;
+    border-radius: 10px;
+    /* color: white; */
+    background-color:  #fff ;
+    border: 3px solid #2578fc;
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.pricing-button-free:hover {
+    color: white;
+    background-color:  #2578fc ;
+    border: 3px solid #2578fc;
+}
+
+.pricing-button-premium {
+    margin-top: 50px;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    background-color:  #2578fc ;
+    border: 3px solid #fff;
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.pricing-button-premium:hover {
+    color: #2578fc;
+    background-color:  #fff ;
+    border: 3px solid #fff;
+}
+
+/* REVIEWS */
+
+.reviews {
+    height: 500px;
+}
+
+.user-info img {
+    float: left;
+}
+
+.stars {
+    float: left;
+    margin-top: 5px;
+}
+
+.user-info h3, .user-info p{
+    margin: 3px 13px;
+    float: left;
+    width: 70%;
+    color: white;
+}
+
+.reviews-content {
+    background-color: #94bdfd;
+    flex-direction: column;
+    width: 455px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.review-info {
+    margin-top: 10px;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.review-info p{
+    padding: 0px 15px;
+    font-size: 17px;
+    height: auto;
+}
+
+.stars i {
+    /* color: gray; */
+    margin-right: 5px;
+}
+
+.stars i.gold {
+    color: gold;
+}
+
+/* FAQ */
+.faq {
+    height: 1000px;
+    background-color: #94bdfd;
+}
+
+.faq-header {
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    padding-top: 1px;
+}
+
+.faq-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.faq-content div{
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    width: 660px;
+    border-radius: 10px ;
+}
+
+.faq-content h3 {
+    width: 100%;
+}
+
+.faq-content img {
+    cursor: pointer;
+}
+
+/**************************** LOGIN PAGE ****************************/
+.login-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.left {
+    display: block;
+    margin-left: 150px;
+}
+
+.left h3 {
+    color: #2578fc;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.left p {
+    margin: 5px 0;
+    /* font-weight: bold; */
+}
+
+.textbox {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    width: 580px;
+    margin-bottom: 10px;
+}
+
+.textbox:first-of-type {
+    margin-top: 50px; 
+}
+
+.textbox i {
+    margin-left: 10px;
+    color: #000000;
+    font-size: 18px;
+    width: 20px;
+    height: auto;
+}
+
+.textbox input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.button button{
+    border-radius: 20px;
+    background-color: #2578fc;
+    color: white;
+    font-size: 16px;
+    margin-left: 230px;
+    margin-top: 30px;
+    width: 135px;
+    height: 40px;
+    border: none;
+}
+
+.passage p {
+    margin-left: 250px;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.icons {
+    display: flex;
+    margin-left: 215px;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.icons i {
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+}
+
+.icons i:hover {
+    background-color: #2578fc; 
+}
+
+.right {
+    flex-shrink: 0;
+    margin-right: 200px;
+}
+
+.right img {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/**************************** SIGN UP PAGE ****************************/
+.createAcc {
+    display: block;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.createAcc h3 {
+    color: #2578fc;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.createAcc p {
+    margin: 5px 0;
+}
+
+.particulars {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: center; 
+    margin-top: 40px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    padding: 10px; 
+    flex: 1 1 calc(50% - 20px); 
+    box-sizing: border-box; 
+}
+
+.input-group i {
+    margin-right: 10px;
+    color: #000000;
+    font-size: 18px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex: 1; 
+    font-size: 16px;
+    padding: 5px;
+}
+
+.signup-button {
+    align-items: center;
+    flex-direction: column;
+}
+
+.signup-button button{
+    border-radius: 20px;
+    background-color: #2578fc;
+    color: white;
+    font-size: 16px;
+    margin-top: 40px;
+    width: 135px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+.signup-passage p {
+    margin-left: 840px;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.signup-icons {
+    display: flex;
+    margin-left: 805px;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.signup-icons i {
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+}
+
+.signup-icons i:hover {
+    background-color: #2578fc; 
+}
+
+/* Cloud Storage */
+
+.storage-container {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.username {
+    margin-left: auto; 
+    /* margin-right: 26px;  */
+    font-size: 20px;  
+    font-weight: bold; 
+    align-items: center;
+}
+
+.username img {
+    height: 10%;
+    margin-left: 10%;
+    cursor: pointer;
+}
+
+.back-button {
+    margin-top: 20px;
+}
+
+.back-button i {
+    font-size: 30px;
+    color: #000000;
+}
+
+.payment {
+    justify-content: center;
+    gap: 20px;
+    /* margin-top: 50px; */
+    flex-wrap: wrap;
+    /* align-items: stretch; */
+}
+
+.payment-info {
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: flex-start; */
+    width: 210px;
+    height: 330px;
+    padding: 50px 20px;
+    border-radius: 10px;
+    text-align: center; 
+    border: 1px solid #000000;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    margin-top: 50px;
+    transform-origin: center;
+    /* flex-grow: 1; */
+}
+
+.payment-info.enlarged {
+    transform: scale(1.2);
+    border: 3px solid #2578fc;
+}
+/* 
+.payment-info:hover {
+    border: 3px solid #2578fc;
+} */
+
+.payment-info h2 {
+    font-size: 16px;
+}
+
+.payment-info img {
+    width: 50px;
+    height: auto;
+}
+
+.payment-info .tick-text {
+    align-items: center;
+    margin-top: 3px; 
+}
+
+.payment-info .tick-text i {
+    color: #32c866; 
+    font-size: 20px; 
+    margin-left: 20px;
+}
+
+.payment-info .tick-text p {
+    font-size: 16px;
+    margin-top: 10px; 
+    margin-left: 20px;
+    width: 150px;
+    text-align: left;
+}
+
+.connect-button {
+    border-radius: 10px;
+    background-color: #2578fc;
+    color: white;
+    font-weight: 700;
+    padding: 10px 20px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Payment details */
+
+.payment-container {
+    justify-content: center;
+}
+
+.payment-details {
+    width: 42%;
+    flex-direction: column;
+}
+
+.payment-details form {
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-form input {
+    align-self: flex-start;
+}
+
+.payment-type img{
+    margin-right: 13px;
+    width: 60px;
+    height: 50px;
+    margin-bottom: 14px;
+}
+/* 
+.payment-type img:hover {
+    transform: scale(1.1);
+} */
+
+.text-box {
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    width: 700px;
+    margin-top: 11px;
+}
+
+.text-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.twobox {
+    gap: 15px; 
+    align-items: center; 
+    margin-top: 10px;
+}
+
+.input-box {
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    width: 336px;
+    /* flex: 1;  */
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.info-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin-left: 5px;
+    cursor: pointer;
+    color: white;
+    width: 20px;
+    height: 20px;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+.paragraph p{
+    margin-top: 20px;
+    font-size: 16px;
+    color: #A9A9A9;
+}
+    
+.terms {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #A9A9A9;
+}
+
+.terms p {
+    margin: 5px 0;
+}
+
+.checkbox-group {
+    margin-top: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+    transform: scale(1.5);
+}
+
+.button-member {
+    margin-left: 70px;
+    margin-top: 5px;
+    border-radius: 10px;
+    background-color: #2578fc;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    width: 600px;
+    height: 50px;
+    border: none;
+}
+
+/* Edit Account */
+
+.profile {
+    align-items: center;
+}
+
+.profile input {
+    margin-left: 30px;
+    height: 40px;
+    font-size: 22px;
+    font-weight: 700;
+    border: none;
+    width: 20%;
+}
+
+.profile button {
+    background-color: #2578fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 40px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;    
+}
+
+.content {
+    margin-left: 40px;
+    max-width: 90%;
+}
+
+.avatar img {
+    width: 90px;
+    height: auto;
+}
+
+.profile h2 {
+    margin-left: 30px;
+}
+
+.edit-icon {
+    transform: scaleX(-1); 
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.details {
+    margin-top: 20px;
+}
+
+.flex-box.input-row {
+    justify-content: space-between; 
+    gap: 10px; 
+    margin-bottom: 10px;
+}
+
+.input-group {
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #000000;
+}
+
+.input-group label {
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; 
+    color: #000000;
+    font-size: 18px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 0; 
+    color: #000000;
+}
+
+.payment-methods h2,
+.cloud-storage h2 {
+    margin-bottom: 10px;
+}
+
+.card-container {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    margin-bottom: 10px;
+}
+
+.card-box {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-right: 15px; 
+    width: 680px;
+    height: 40px;
+}
+
+.card-box img {
+    width: 40px;
+    height: auto;
+    margin-right: 20px; 
+}
+
+.default-badge {
+    background-color: #8dc65c;
+    color: #386641;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: auto; 
+    border: 1px solid #386641
+}
+
+.remove-btn {
+    background-color: transparent;
+    color: red;
+    border: 1px solid red;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.cloud-storage h2 {
+    margin-bottom: 10px;
+}
+
+.row-container {
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 10px; 
+}
+
+.storage {
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-right: 15px; 
+    width: 500px;
+    height: 40px;
+}
+
+.storage img {
+    width: 40px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.storage span {
+    font-weight: bold;
+}
+
+.change-btn {
+    background-color: transparent;
+    color: #2578fc;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    border: 1px solid #2578fc;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.back-btn {
+    background-color: white;
+    color: #2578fc;
+    border: 1px solid #2578fc;
+    border-radius: 5px;
+    padding: 15px 40px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save-btn {
+    background-color: #2578fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 40px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+}

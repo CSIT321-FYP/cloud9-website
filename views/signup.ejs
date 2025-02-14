@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="row flex-box" style="align-items: center;">
+            <div class="links flex-box">
+                <h1>
+                    <a href="index.html">Cl9ud</a>
+                </h1>
+                <ul>
+                    <li>About</li>
+                    <li>Core Functions</li>
+                    <li>Features</li>
+                    <li>Pricing</li>
+                </ul>
+            </div>
+            <div class="login">
+                <h2><a href="loginPage.html">Log In</a> / <a href="signup.html">Sign Up</a></h2>
+            </div>
+        </div>  
+    </header>
+
+    <div class="row">
+        <div class="createAcc">
+            <h3>CREATE ACCOUNT</h3>
+            <p>Enter your personal details</p>
+            <p>and get started with us!</p>
+
+            <form class="flex-box particulars">
+                <div class="input-group">
+                    <i class="fas fa-id-card"></i>
+                    <input type="text" id="fname" placeholder="First Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-id-card"></i>
+                    <input type="text" id="lname" placeholder="Last Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="cpassword" placeholder="Confirm Password" oninput="checkPassword()" required>
+                </div>
+                <div class="signup-button flex-box" id="error-box">
+                    <button type="button" onclick="submitForm()">SIGN UP</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="signup-passage">
+            <p>Or log in with</p>
+        </div>
+
+        <div class="signup-icons">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-google"></i>
+            <i class="fab fa-linkedin"></i>
+        </div>
+    </div>
+</body>
+<script>
+
+    function checkPassword(){
+        // check if passwords are the same
+
+
+        const password = document.getElementById("password").value;
+        const cpassword = document.getElementById("cpassword").value;
+        const errorBox = document.getElementById("error-box")
+
+        // Clear any previous error messages
+        // errorText.textContent = "";
+
+        let errorText = document.querySelector("#error-box .errorText");
+
+        // Check if passwords match
+        if (password !== cpassword) {
+            if(!errorText) {
+                const errorText = document.createElement("p");
+                errorText.className = "errorText";
+                errorBox.appendChild(errorText)
+                errorText.textContent = "Passwords do not match!";
+            }
+        } else {
+            if (errorText){
+                errorText.remove()
+            }
+        }
+
+    }
+
+    function submitForm(){
+        checkForm();
+        const fname = document.getElementById("fname").value;
+        const lname = document.getElementById("lname").value;
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const cpassword = document.getElementById("cpassword").value;
+        console.log(fname);
+        console.log(lname);
+        console.log(username);
+        console.log(email);
+        console.log(password);
+        console.log(cpassword);
+    }
+
+
+</script>
+</html>
