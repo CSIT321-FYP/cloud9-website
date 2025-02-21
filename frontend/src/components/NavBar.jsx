@@ -55,34 +55,62 @@ const NavBar = () => {
           <Typography variant="h6">Pricing</Typography>
         </a>
         {token && user && (
-          <Box
-            sx={{
-              textTransform: "none",
-              color: "white",
-              ml: "auto",
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-            }}
-          >
-            <Avatar />
-            <Typography variant="h5">
-              {user.firstName} {user.lastName}
-            </Typography>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box sx={{ display: "flex", gap: "2rem" }}>
+              <a
+                href="/downloads"
+                style={{
+                  textTransform: "none",
+                  color: "inherit",
+                  ml: "auto",
+                  textDecoration: "none",
+                }}
+              >
+                <Typography variant="h6">Downloads</Typography>
+              </a>
+            </Box>
+            <Box
+              sx={{
+                textTransform: "none",
+                color: "white",
+                ml: "15rem",
+                display: "flex",
+                alignItems: "center",
+                gap: "1rem",
+              }}
+            >
+              <Avatar />
+              <Typography variant="h5">
+                {user.firstName} {user.lastName}
+              </Typography>
+            </Box>
           </Box>
         )}
         {!token && (
-          <a
-            href="/#pricing"
-            style={{
-              textTransform: "none",
-              color: "inherit",
-              ml: "auto",
-              textDecoration: "none",
-            }}
-          >
-            <Typography variant="h5">Log In / Sign Up</Typography>
-          </a>
+          <Box sx={{ ml: "15rem", display: "flex", gap: "2rem" }}>
+            <a
+              href="/login"
+              style={{
+                textTransform: "none",
+                color: "inherit",
+                ml: "auto",
+                textDecoration: "none",
+              }}
+            >
+              <Typography variant="h5">Log In</Typography>
+            </a>
+            <a
+              href="/#pricing"
+              style={{
+                textTransform: "none",
+                color: "inherit",
+                ml: "auto",
+                textDecoration: "none",
+              }}
+            >
+              <Typography variant="h5">Sign Up</Typography>
+            </a>
+          </Box>
         )}
       </Container>
     </Box>

@@ -15,6 +15,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import StarIcon from "@mui/icons-material/Star";
 import { useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const Item = ({ title, description }) => {
   return (
@@ -39,6 +40,7 @@ const Item = ({ title, description }) => {
 
 const Home = () => {
   const { user, setUser, token } = useAuth();
+  const navigate = useNavigate();
 
   const fetchUser = async () => {
     if (!token) return;
@@ -202,7 +204,13 @@ const Home = () => {
               <Typography>Link to cloud storage services</Typography>
             </Box>
           </Box>
-          <Button variant="outlined" sx={{ mt: "auto" }}>
+          <Button
+            variant="outlined"
+            sx={{ mt: "auto" }}
+            onClick={() => {
+              navigate("/register");
+            }}
+          >
             Sign Up
           </Button>
         </Card>
@@ -259,6 +267,9 @@ const Home = () => {
           <Button
             variant="outlined"
             sx={{ mt: "auto", color: "white", borderColor: "white" }}
+            onClick={() => {
+              navigate("/register");
+            }}
           >
             Sign Up
           </Button>
