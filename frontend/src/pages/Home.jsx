@@ -45,7 +45,7 @@ const Home = () => {
   const fetchUser = async () => {
     if (!token) return;
 
-    let response = await axios.get("http://server.cloud9app.site/users", {
+    let response = await axios.get("https://server.cloud9app.site/users", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

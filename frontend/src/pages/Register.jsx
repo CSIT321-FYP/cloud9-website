@@ -24,7 +24,7 @@ const Register = () => {
     const redirectUri = encodeURIComponent(
       window.location.origin + "/auth-success",
     );
-    window.location.href = `http://server.cloud9app.site/users/google?redirect_uri=${redirectUri}`;
+    window.location.href = `https://server.cloud9app.site/users/google?redirect_uri=${redirectUri}`;
   };
   const navigate = useNavigate();
   const { token, setToken } = useAuth();
@@ -42,7 +42,7 @@ const Register = () => {
 
     try {
       let response = await axios.post(
-        "http://server.cloud9app.site/users/register",
+        "https://server.cloud9app.site/users/register",
         {
           firstName,
           lastName,
