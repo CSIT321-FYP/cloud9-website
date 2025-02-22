@@ -21,7 +21,7 @@ const Login = () => {
     const redirectUri = encodeURIComponent(
       window.location.origin + "/auth-success",
     );
-    window.location.href = `http://localhost:3000/users/google?redirect_uri=${redirectUri}`;
+    window.location.href = `http://server.cloud9app.site/users/google?redirect_uri=${redirectUri}`;
   };
 
   const { token, setToken } = useAuth();
@@ -35,10 +35,13 @@ const Login = () => {
     console.log({ email, password });
 
     try {
-      let response = await axios.post("http://localhost:3000/users/login", {
-        email,
-        password,
-      });
+      let response = await axios.post(
+        "http://server.cloud9app.site/users/login",
+        {
+          email,
+          password,
+        },
+      );
       console.log(response);
       setToken(response.data);
       navigate("/");

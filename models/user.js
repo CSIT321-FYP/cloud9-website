@@ -52,7 +52,8 @@ class User {
     return user;
   }
 
-  static async createUser(email, password, firstName, lastName) {
+  static async createUser(email, password, firstName, lastName, premium) {
+    premium = premium || true;
     // Generate RSA key pair
     const { publicKey, privateKey } = crypto.generateKeyPairSync("rsa", {
       modulusLength: 2048,
@@ -62,8 +63,16 @@ class User {
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const result = await pool.query(
-      "INSERT INTO users (email, password, firstName, lastName, public_key, private_key) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-      [email, hashedPassword, firstName, lastName, publicKey, privateKey],
+      "INSERT INTO users (email, password, firstName, lastName, public_key, private_key, premium) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [
+        email,
+        hashedPassword,
+        firstName,
+        lastName,
+        publicKey,
+        privateKey,
+        premium,
+      ],
     );
 
     let { id } = result.rows[0];

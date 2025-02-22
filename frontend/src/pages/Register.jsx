@@ -2,10 +2,13 @@ import GoogleIcon from "@mui/icons-material/Google";
 import {
   Button,
   FormControl,
+  FormControlLabel,
+  FormLabel,
   Grid2 as Grid,
   Input,
   InputAdornment,
   InputLabel,
+  Switch,
   TextField,
   Typography,
 } from "@mui/material";
@@ -21,7 +24,7 @@ const Register = () => {
     const redirectUri = encodeURIComponent(
       window.location.origin + "/auth-success",
     );
-    window.location.href = `http://localhost:3000/users/google?redirect_uri=${redirectUri}`;
+    window.location.href = `http://server.cloud9app.site/users/google?redirect_uri=${redirectUri}`;
   };
   const navigate = useNavigate();
   const { token, setToken } = useAuth();
@@ -30,6 +33,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [premium, setPremium] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleRegister = async () => {
@@ -37,12 +41,15 @@ const Register = () => {
     console.log({ email, password, firstName, password });
 
     try {
-      let response = await axios.post("http://localhost:3000/users/register", {
-        firstName,
-        lastName,
-        email,
-        password,
-      });
+      let response = await axios.post(
+        "http://server.cloud9app.site/users/register",
+        {
+          firstName,
+          lastName,
+          email,
+          password,
+        },
+      );
       console.log(response);
       setToken(response.data);
       navigate("/");
@@ -121,6 +128,18 @@ const Register = () => {
                 setPassword(e.target.value);
               }}
             />
+            <FormControl>
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={premium}
+                    onChange={() => setPremium(!premium)}
+                    inputProps={{ "aria-label": "controlled" }}
+                  />
+                }
+                label="Premium"
+              />
+            </FormControl>
 
             <Typography color="error" variant="subtitle1">
               {errorMessage}

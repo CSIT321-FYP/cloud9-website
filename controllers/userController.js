@@ -44,10 +44,16 @@ async function handleGetUser(req, res, next) {
 }
 
 async function handleRegister(req, res, next) {
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password, firstName, lastName, premium } = req.body;
   try {
     // Create user
-    let user = await User.createUser(email, password, firstName, lastName);
+    let user = await User.createUser(
+      email,
+      password,
+      firstName,
+      lastName,
+      premium,
+    );
 
     // Remove sensitive fields
     delete user.hashedPassword;

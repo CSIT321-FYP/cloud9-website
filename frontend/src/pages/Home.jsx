@@ -45,7 +45,7 @@ const Home = () => {
   const fetchUser = async () => {
     if (!token) return;
 
-    let response = await axios.get("http://localhost:3000/users", {
+    let response = await axios.get("http://server.cloud9app.site/users", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -80,7 +80,17 @@ const Home = () => {
               encrypting files before they’re uploaded and decrypting them upon
               download.
             </Typography>
-            <Button variant="contained" sx={{ mt: "2rem" }}>
+            <Button
+              variant="contained"
+              sx={{ mt: "2rem" }}
+              onClick={() => {
+                if (token) {
+                  navigate("/downloads");
+                } else {
+                  navigate("/login");
+                }
+              }}
+            >
               Get it Now
             </Button>
           </Box>
