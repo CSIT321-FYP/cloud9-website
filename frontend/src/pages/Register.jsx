@@ -48,6 +48,7 @@ const Register = () => {
           lastName,
           email,
           password,
+          premium,
         },
       );
       console.log(response);
