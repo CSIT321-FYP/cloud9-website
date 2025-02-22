@@ -8,13 +8,7 @@ const session = require("express-session");
 const cors = require("cors");
 
 // Allow CORS from your frontend domain
-const corsOptions = {
-  origin: "https://cloud9app.site",
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
-
-app.use(cors(corsOptions));
+// app.use(cors());
 
 // Load environment variables
 require("dotenv").config({
